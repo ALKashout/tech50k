@@ -179,5 +179,54 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- Modal form (Arabic) -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-overlay" data-close="true"></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title-ar">
+        <button class="modal-close" aria-label="Close form" data-close="true">✕</button>
+        <h2 id="modal-title-ar">انضم الى قائمة الانتظار</h2>
+        <p class="modal-sub">املأ النموذج أدناه للانضمام إلى المبادرة</p>
+
+        <main class="wrap">
+          <form id="contactForm" class="card" novalidate>
+            <h1 class="title">التواصل</h1>
+
+            <label class="field">
+              <span class="label-text">الاسم الكامل</span>
+              <input type="text" name="fullName" id="fullName" required autocomplete="name" />
+            </label>
+
+            <label class="field">
+              <span class="label-text">البريد الإلكتروني</span>
+              <input type="email" name="email" id="email" required autocomplete="email" />
+            </label>
+
+            <label class="field">
+              <span class="label-text">البلد</span>
+              <select name="country" id="country" required>
+                <option value="">جارٍ تحميل الدول…</option>
+              </select>
+            </label>
+
+            <input type="hidden" id="access_key" value="0da79a34-e732-42ba-84af-06e813cef769" />
+
+            <fieldset class="field">
+              <legend class="label-text">أعلى مستوى تعليمي</legend>
+              <label class="radio"><input type="radio" name="education" value="الثانوية أو ما يعادلها" required />الثانوية أو ما يعادلها</label>
+              <label class="radio"><input type="radio" name="education" value="درجة البكالوريوس" />درجة البكالوريوس</label>
+              <label class="radio"><input type="radio" name="education" value="درجة الماجستير" />درجة الماجستير</label>
+              <label class="radio"><input type="radio" name="education" value="دكتوراه" />دكتوراه</label>
+              <label class="radio"><input type="radio" name="education" value="أخرى" />أخرى</label>
+            </fieldset>
+
+            <div class="actions">
+              <button id="submitBtn" type="submit">إرسال</button>
+            </div>
+
+            <div id="message" role="status" aria-live="polite" class="message"></div>
+          </form>
+        </main>
+      </div>
+    </div>
   </body>
 </html>
