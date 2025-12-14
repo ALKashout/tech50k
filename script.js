@@ -87,11 +87,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const ageGroup = form.ageGroup?.value;
+      if (!ageGroup) {
+        showMessage('Please select your age group.', true);
+        return;
+      }
+
       const data = {
         fullName: form.fullName.value.trim(),
         email: form.email.value.trim(),
         country: form.country.value,
-        education
+        education,
+        ageGroup
       };
 
       const access_key = accessKeyInput?.value?.trim();
@@ -110,7 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
           subject: `Website form submission: ${data.fullName}`,
           name: data.fullName,
           email: data.email,
-          message: `Country: ${data.country}\nEducation: ${data.education}`,
+          message: `Country: ${data.country}\nAge group: ${data.ageGroup}\nEducation: ${data.education}`,
+          age_group: data.ageGroup,
           to: 'aladdin@engineer.com'
         };
 
