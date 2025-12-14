@@ -93,12 +93,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const gender = document.querySelector('input[name="gender"]:checked')?.value;
+      if (!gender) {
+        showMessage('Please select your gender.', true);
+        return;
+      }
+
       const data = {
         fullName: form.fullName.value.trim(),
         email: form.email.value.trim(),
         country: form.country.value,
         education,
-        ageGroup
+        ageGroup,
+        gender
       };
 
       const access_key = accessKeyInput?.value?.trim();
@@ -117,8 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
           subject: `Website form submission: ${data.fullName}`,
           name: data.fullName,
           email: data.email,
-          message: `Country: ${data.country}\nAge group: ${data.ageGroup}\nEducation: ${data.education}`,
+          message: `Country: ${data.country}\nAge group: ${data.ageGroup}\nGender: ${data.gender}\nEducation: ${data.education}`,
           age_group: data.ageGroup,
+          gender: data.gender,
           to: 'aladdin@engineer.com'
         };
 
