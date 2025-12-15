@@ -1,0 +1,211 @@
+/* ===== Modal / Popup (form) ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+}
+
+.modal[aria-hidden="false"] {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modal-panel {
+    position: relative;
+    background: linear-gradient(180deg, #071028, #0b1624);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 20px;
+    width: 480px;
+    max-width: calc(100% - 40px);
+    max-height: 80vh;
+    /* أقصى ارتفاع */
+    overflow-y: auto;
+    /* scroll إذا المحتوى زايد */
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(2, 6, 23, 0.6);
+    z-index: 1210;
+    color: #e6eef8;
+}
+
+/* Scrollbar customization */
+.modal-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-panel::-webkit-scrollbar-track {
+    background: #0b1624;
+}
+
+.modal-panel::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 3px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1230;
+}
+
+.modal-sub {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    color: #9ca3af;
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+    .modal-panel {
+        width: 94%;
+        padding: 18px;
+        max-height: 90vh;
+    }
+}
+
+/* Form inside modal */
+.modal-panel .wrap {
+    min-height: auto;
+    display: block;
+    padding: 0;
+}
+
+.modal-panel .card {
+    width: 100%;
+    max-width: 100%;
+    background: linear-gradient(180deg, #071028, #0b1624);
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    color: #e6eef8;
+    margin-top: 12px;
+}
+
+.modal-panel .title {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #f8fafc;
+}
+
+.modal-panel .field {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.modal-panel .label-text {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.modal-panel input[type="text"],
+.modal-panel input[type="email"],
+.modal-panel select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    color: #fff;
+}
+
+/* Make select dropdown readable */
+.modal-panel select {
+    color: #e6eef8;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #cbd5e1 50%), linear-gradient(135deg, #cbd5e1 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 36px;
+}
+
+.modal-panel select option {
+    color: #e6eef8;
+    background: rgba(7, 16, 40, 1);
+}
+
+.modal-panel fieldset.field {
+    border: 0;
+    padding: 0;
+    margin: 0 0 12px 0;
+}
+
+.modal-panel .radio {
+    display: block;
+    margin: 6px 0;
+    font-size: 15px;
+    color: #e6eef8;
+}
+
+.modal-panel fieldset.gender .radio {
+    display: inline-block;
+    margin-right: 12px;
+    margin-left: 0;
+}
+
+.modal-panel .radio input[type="radio"] {
+    margin-inline-end: 8px;
+    vertical-align: middle;
+}
+
+.modal-panel .actions {
+    margin-top: 8px;
+}
+
+.modal-panel .card button {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    background: #22c55e;
+    color: #071027;
+    border: 0;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.modal-panel button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.modal-panel .message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* Ensure title and subtitle appear above the embedded form */
+.modal-panel h2,
+#modal-title,
+.modal-panel .modal-sub {
+    position: relative;
+    z-index: 1225;}

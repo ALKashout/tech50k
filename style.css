@@ -14,39 +14,39 @@ body {
 /* ===== Navbar ===== */
 .navbar {
   display: flex;
-  justify-content: space-between; /* الشعار على اليسار، اللغة على اليمين */
+  justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
+  padding: 16px 16px;
 }
 
-.logo {
+/* .logo {
   display: flex;
   align-items: center;
   font-weight: 700;
   font-size: 24px;
   color: white;
-  gap: 10px; /* مسافة بين الشعار والأيقونة */
-}
+  gap: 10px;
+} */
 
-.logo-icon {
-  font-size: 28px; /* حجم الأيقونة */
-}
+/* .logo-icon {
+  font-size: 28px;
+} */
 
 .navbar a {
   color: #ccc;
-  margin-left: 20px;
+  margin-left:40px;
   text-decoration: none;
 }
 
 /* Language Switcher */
 .lang-switcher a {
-  color: #facc15; /* لون أصفر */
+  color: #facc15;
   text-decoration: none;
   font-weight: 600;
-  font-size: 16px;
-  padding: 6px 12px;
-  border: 1px solid #facc15;
-  border-radius: 6px;
+  font-size: 24px;
+  padding: 8px 16px;
+  border: 2px solid #facc15;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
@@ -58,27 +58,35 @@ body {
 /* ===== Hero Section ===== */
 .hero {
   text-align: center;
-  padding-top: 24px;
-  padding-bottom: 56px;
-  margin: 16px;
+  padding-top: 10px;
+  padding-bottom: 72px;
+  margin: 24px auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: 960px;
 }
 
 .hero h1 {
-  font-size: 40px;
-  line-height: 1.8;
-  margin-bottom: 30px;
+  font-size: clamp(2rem, 6vw + 1rem, 5rem);
+ 
+  line-height: 1;
+ 
+  margin-bottom: 20px;
 }
 
+
 .hero p {
-  font-size: 16px;
-  margin-top: 16px;
-  margin-bottom: 24px;
+
+  margin-bottom: 40px;
+  font-size: clamp(2rem, 2rem + 2rem, 2rem);
+  margin-top: 12px;
+
 }
 
 .cta {
   background: #22c55e;
   border: none;
-  padding: 14px 28px;
+  padding: 20px 40px;
   border-radius: 8px;
   color: black;
   cursor: pointer;
@@ -88,15 +96,15 @@ body {
 .hero-badge-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 16px;
-  border-radius: 12px;
+  gap: 16px;
+  padding: 16px 32px;
+  border-radius: 16px;
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -105,15 +113,15 @@ body {
   color: #111827;
   padding: 4px 8px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .badge-text {
   color: #facc15;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 /* ===== Pillars / Cards ===== */
@@ -133,7 +141,8 @@ body {
   padding: 32px 28px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
   transition: all 0.35s ease, transform 0.35s ease;
   position: relative;
   overflow: hidden;
@@ -156,7 +165,8 @@ body {
 
 .card:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -289,32 +299,29 @@ body {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+
   /* Hero adjustments */
   .hero {
-    padding-left: 20px; 
-    padding-right: 20px;
-    padding-top: 40px;  
-    padding-bottom: 80px; 
-  }
-
-  .hero h1 {
-    font-size: 32px; 
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 32px;
+    padding-bottom: 56px;
   }
 
   .badge-text {
-    font-size: 12px;      
-    white-space: nowrap;   
+    font-size: 12px;
+    white-space: nowrap;
   }
 
   .hero p {
-    font-size: 16px;      
-    margin-top: 16px;     
-    margin-bottom: 24px; 
+    font-size: 0.98rem;
+    margin-top: 12px;
+    margin-bottom: 20px;
   }
 
   /* Grid adjustments */
   .grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
@@ -330,6 +337,7 @@ body {
     margin: 0 8px;
   }
 }
+
 /* ===== RTL Support ===== */
 body.rtl {
   direction: rtl;
@@ -362,19 +370,19 @@ body.rtl ul {
 .modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(2,6,23,0.6);
+  background: rgba(2, 6, 23, 0.6);
   backdrop-filter: blur(4px);
 }
 
 .modal-panel {
   position: relative;
-  background: linear-gradient(180deg,#071028,#0b1624);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, #071028, #0b1624);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 28px;
   width: 520px;
   max-width: calc(100% - 40px);
   border-radius: 12px;
-  box-shadow: 0 30px 60px rgba(2,6,23,0.6);
+  box-shadow: 0 30px 60px rgba(2, 6, 23, 0.6);
   z-index: 1210;
   color: #e6eef8;
 }
@@ -415,8 +423,8 @@ body.rtl ul {
   width: 100%;
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
   color: #fff;
   margin-top: 6px;
 }
@@ -430,60 +438,166 @@ body.rtl ul {
 
 .cta.secondary {
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: #fff;
 }
 
 @media (max-width: 520px) {
-  .modal-panel { width: 94%; padding: 18px; }
+  .modal-panel {
+    width: 94%;
+    padding: 18px;
+  }
 }
 
 /* Scoped styles for the embedded public form inside modal */
-.modal-panel .wrap { min-height: auto; display: block; padding: 0; }
-.modal-panel .card { width: 100%; max-width: 600px; background: linear-gradient(180deg,#071028,#0b1624); padding: 22px; border-radius: 10px; box-shadow: none; border: none; color: #e6eef8; overflow: visible; margin-top: 12px; }
-.modal-panel .title { margin: 0 0 12px 0; font-size: 18px; font-weight:600; color: #f8fafc; }
-.modal-panel .field { display:block; margin-bottom:12px }
-.modal-panel .label-text { display:block; margin-bottom:8px; font-size:13px; color:#9ca3af }
-.modal-panel input[type="text"], .modal-panel input[type="email"], .modal-panel select { width:100%; padding:10px 12px; border:1px solid rgba(255,255,255,0.06); border-radius:8px; font-size:15px; background: rgba(255,255,255,0.02); color:#fff }
+.modal-panel .wrap {
+  min-height: auto;
+  display: block;
+  padding: 0;
+}
+
+.modal-panel .card {
+  width: 100%;
+  max-width: 600px;
+  background: linear-gradient(180deg, #071028, #0b1624);
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: none;
+  border: none;
+  color: #e6eef8;
+  overflow: visible;
+  margin-top: 12px;
+}
+
+.modal-panel .title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.modal-panel .field {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.modal-panel .label-text {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.modal-panel input[type="text"],
+.modal-panel input[type="email"],
+.modal-panel select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+}
 
 /* Make select dropdown readable and not clipped by parent */
 .modal-panel select {
   color: #e6eef8;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   -webkit-appearance: none;
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, #cbd5e1 50%), linear-gradient(135deg, #cbd5e1 50%, transparent 50%);
-  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+  background-image: linear-gradient(45deg, transparent 50%, #cbd5e1 50%),
+    linear-gradient(135deg, #cbd5e1 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px);
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
   padding-right: 36px;
 }
-.modal-panel select option { color: #e6eef8; background: rgba(7,16,40,1); }
+
+.modal-panel select option {
+  color: #e6eef8;
+  background: rgba(7, 16, 40, 1);
+}
 
 /* Remove native IE/Edge dropdown arrow */
-.modal-panel select::-ms-expand { display: none; }
-.modal-panel fieldset.field { border:0;padding:0;margin:0 0 12px 0 }
-.modal-panel .radio { display:block; margin:6px 0; font-size:15px; color:#e6eef8 }
-.modal-panel fieldset.gender .radio { display:inline-block; margin-right:12px; margin-left:0; }
+.modal-panel select::-ms-expand {
+  display: none;
+}
+
+.modal-panel fieldset.field {
+  border: 0;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+
+.modal-panel .radio {
+  display: block;
+  margin: 6px 0;
+  font-size: 15px;
+  color: #e6eef8;
+}
+
+.modal-panel fieldset.gender .radio {
+  display: inline-block;
+  margin-right: 12px;
+  margin-left: 0;
+}
+
 /* Add spacing between radio input and its label text (handles LTR and RTL) */
 .modal-panel .radio input[type="radio"] {
   margin-inline-end: 8px;
   vertical-align: middle;
 }
-.modal-panel .actions { margin-top:8px }
-.modal-panel .card button { display:block; width:100%; padding:10px 14px; background:#22c55e; color:#071027; border:0; border-radius:8px; font-size:15px; cursor:pointer }
-.modal-panel button:disabled { opacity:0.6; cursor:default }
-.modal-panel .message { margin-top:10px; font-size:14px; color:#9ca3af }
+
+.modal-panel .actions {
+  margin-top: 8px;
+}
+
+.modal-panel .card button {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  background: #22c55e;
+  color: #071027;
+  border: 0;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.modal-panel button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.modal-panel .message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #9ca3af;
+}
 
 /* Ensure title and subtitle appear above the embedded form */
-.modal-panel h2,#modal-title,
+.modal-panel h2,
+#modal-title,
 .modal-panel .modal-sub {
   position: relative;
   z-index: 1225;
 }
 
-@media (max-width:480px){ .modal-panel .card{ padding:16px; border-radius:10px } .modal-panel input[type="text"], .modal-panel input[type="email"], .modal-panel select{ padding:12px } }
+@media (max-width: 480px) {
+  .modal-panel .card {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .modal-panel input[type="text"],
+  .modal-panel input[type="email"],
+  .modal-panel select {
+    padding: 12px;
+  }
+}
 
 .logo-link {
   display: flex;
@@ -498,8 +612,7 @@ body.rtl ul {
 }
 
 .logo-img {
-  height: 36px;  
+  height: 36px;
   width: auto;
   display: block;
 }
-

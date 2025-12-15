@@ -1,7 +1,7 @@
 /* ===== Footer Common Styles ===== */
 .footer-container {
-  background-color: #111; /* خلفية داكنة */
-  color: #fff; /* نص أبيض */
+  background-color: #111; 
+  color: #fff; 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -11,7 +11,7 @@
 }
 
 .footer-section {
-  flex: 1 1 auto; /* مرن حسب المحتوى */
+  flex: 1 1 auto; 
   min-width: 0;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .footer-links a:hover {
-  color: #1da1f2; /* لون عند المرور */
+  color: #1da1f2; 
 }
 
 .social-icons {
@@ -60,12 +60,12 @@
 .social-icons a img {
   width: 24px;
   height: 24px;
-  filter: brightness(0) invert(1); /* أيقونات بيضاء */
+  filter: brightness(0) invert(1); 
   transition: filter 0.3s;
 }
 
 .social-icons a:hover img {
-  filter: brightness(0) invert(0.6); /* تأثير عند المرور */
+  filter: brightness(0) invert(0.6); 
 }
 
 .footer-copy {

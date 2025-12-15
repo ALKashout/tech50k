@@ -69,7 +69,7 @@ body {
 
 /* Sections */
 section {
-  padding: 30px 20px; 
+  padding: 30px 20px;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -77,10 +77,11 @@ section {
 section h2 {
   font-size: 32px;
   color: #facc15;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
-section p, section ul {
+section p,
+section ul {
   font-size: 18px;
   color: #ccc;
   line-height: 1.6;
@@ -92,8 +93,9 @@ section ul li {
   margin-bottom: 5px;
 }
 
-section.mission, section.audience {
-  background:none;
+section.mission,
+section.audience {
+  background: none;
 }
 
 /* Footer */
@@ -125,7 +127,8 @@ section.mission, section.audience {
   line-height: 1.6;
 }
 
-.footer-links h4, .footer-social h4 {
+.footer-links h4,
+.footer-social h4 {
   font-size: 16px;
   font-weight: 600;
   color: #facc15;
@@ -188,7 +191,7 @@ section.mission, section.audience {
   .navbar {
     padding: 20px 30px;
   }
-  
+
   .hero h1 {
     font-size: 32px;
   }
@@ -213,6 +216,7 @@ section.mission, section.audience {
     margin: 0 8px;
   }
 }
+
 /* ===== RTL Support ===== */
 body.rtl {
   direction: rtl;
@@ -233,9 +237,11 @@ body.rtl .social-icons a {
   margin-left: 12px;
   margin-right: 0;
 }
+
 body.rtl .hero {
   text-align: right;
 }
+
 .logo-link {
   display: flex;
   align-items: center;
@@ -247,8 +253,9 @@ body.rtl .hero {
 .logo-link:hover {
   opacity: 0.9;
 }
+
 .logo-img {
-  height: 36px;  
+  height: 36px;
   width: auto;
   display: block;
 }

@@ -1,0 +1,120 @@
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-overlay" data-close="true"></div>
+  <div
+    class="modal-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <button class="modal-close" aria-label="Close form" data-close="true">
+      ✕
+    </button>
+    <h2 id="modal-title">Join the Waitlist</h2>
+    <p id="modal-sub" class="modal-sub">
+      Fill the form below to join the initiative.
+    </p>
+
+    <main class="wrap">
+      <form id="contactForm" class="card" novalidate>
+        <h1 id="form-heading" class="title">Contact</h1>
+
+        <label class="field">
+          <span id="label-name" class="label-text">Full Name</span>
+          <input
+            type="text"
+            name="fullName"
+            id="fullName"
+            required
+            autocomplete="name"
+          />
+        </label>
+
+        <label class="field">
+          <span id="label-email" class="label-text">Email</span>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            autocomplete="email"
+          />
+        </label>
+
+        <label class="field">
+          <span id="label-country" class="label-text">Country</span>
+          <select name="country" id="country" required>
+            <option value="">Loading countries…</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span id="label-age" class="label-text">Age group</span>
+          <select name="ageGroup" id="ageGroup" required>
+            <option value="">Select your age group</option>
+          </select>
+        </label>
+
+        <fieldset class="field gender">
+          <legend id="label-gender" class="label-text">Gender</legend>
+          <label class="radio">
+            <input type="radio" name="gender" value="Female" required />
+            <span id="gender-female">Female</span>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="gender" value="Male" />
+            <span id="gender-male">Male</span>
+          </label>
+        </fieldset>
+
+        <input
+          type="hidden"
+          id="access_key"
+          value="0da79a34-e732-42ba-84af-06e813cef769"
+        />
+
+        <fieldset class="field education">
+          <legend id="label-education" class="label-text">
+            Highest level of education
+          </legend>
+          <label class="radio">
+            <input
+              type="radio"
+              name="education"
+              value="High school or equivalent"
+              required
+            />
+            <span class="edu-text">High school or equivalent</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="education" value="Bachelor's degree" />
+            <span class="edu-text">Bachelor's degree</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="education" value="Master's degree" />
+            <span class="edu-text">Master's degree</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="education" value="Doctorate" />
+            <span class="edu-text">Doctorate</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="education" value="Other" />
+            <span class="edu-text">Other</span>
+          </label>
+        </fieldset>
+
+        <div class="actions">
+          <button id="submitBtn" type="submit">Submit</button>
+        </div>
+
+        <div
+          id="message"
+          role="status"
+          aria-live="polite"
+          class="message"
+        ></div>
+      </form>
+    </main>
+  </div>
+</div>
