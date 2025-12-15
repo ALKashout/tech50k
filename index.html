@@ -5,18 +5,24 @@
     <title>TECH50K</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="footer.css" />
   </head>
   <body>
     <!-- Header -->
     <header class="navbar">
       <div class="logo">
-        <span>TECH50K</span>
-        <span class="logo-icon">💡</span>
+        <a href="index.html" class="logo-link">
+          <img
+            src="assets/images/logo.svg"
+            alt="TECH50K Logo"
+            class="logo-img"
+          />
+        </a>
       </div>
 
       <!-- Language switcher -->
       <div class="lang-switcher">
-        <a href="index-ar.html" aria-label="Arabic">🇸🇾 عربي</a>
+        <a href="index-ar.html" aria-label="Arabic">عربي</a>
       </div>
     </header>
 
@@ -139,49 +145,19 @@
       </div>
     </section>
 
-    <!-- Footer -->
- <!-- Footer -->
-<footer class="footer">
-  <div class="footer-container">
-    <!-- Logo & Description -->
-    <div class="footer-section footer-logo-section">
-      <div class="footer-logo">TECH50K</div>
-      <p class="footer-desc">
-        Empowering Syrian youth with digital skills and opportunities.
-      </p>
-    </div>
-
-    <!-- Links -->
-    <div class="footer-section footer-links">
-      <h4>About</h4>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-      </ul>
-    </div>
-
-    <!-- Social -->
-    <div class="footer-section footer-social">
-      <h4>Connect with us</h4>
-      <div class="social-icons">
-        <a href="#" aria-label="Twitter">🐦</a>
-        <a href="#" aria-label="LinkedIn">🔗</a>
-        <a href="#" aria-label="Facebook">📘</a>
-        <a href="#" aria-label="Instagram">📸</a>
-      </div>
-    </div>
-  </div>
-
-  <p class="footer-copy">© 2025 TECH50K. All rights reserved.</p>
-</footer>
-
-
     <script src="script.js"></script>
     <!-- Modal form (hidden by default) -->
     <div id="modal" class="modal" aria-hidden="true">
       <div class="modal-overlay" data-close="true"></div>
-      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" aria-label="Close form" data-close="true">✕</button>
+      <div
+        class="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <button class="modal-close" aria-label="Close form" data-close="true">
+          ✕
+        </button>
         <h2 id="modal-title">Join the Waitlist</h2>
         <p class="modal-sub">Fill the form below to join the initiative.</p>
 
@@ -191,12 +167,24 @@
 
             <label class="field">
               <span class="label-text">Full Name</span>
-              <input type="text" name="fullName" id="fullName" required autocomplete="name" />
+              <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                required
+                autocomplete="name"
+              />
             </label>
 
             <label class="field">
               <span class="label-text">Email</span>
-              <input type="email" name="email" id="email" required autocomplete="email" />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                autocomplete="email"
+              />
             </label>
 
             <label class="field">
@@ -223,29 +211,81 @@
 
             <fieldset class="field gender">
               <legend class="label-text">Gender</legend>
-              <label class="radio"><input type="radio" name="gender" value="Female" required />Female</label>
-              <label class="radio"><input type="radio" name="gender" value="Male" />Male</label>
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  required
+                />Female</label
+              >
+              <label class="radio"
+                ><input type="radio" name="gender" value="Male" />Male</label
+              >
             </fieldset>
 
-            <input type="hidden" id="access_key" value="0da79a34-e732-42ba-84af-06e813cef769" />
+            <input
+              type="hidden"
+              id="access_key"
+              value="0da79a34-e732-42ba-84af-06e813cef769"
+            />
 
             <fieldset class="field">
               <legend class="label-text">Highest level of education</legend>
-              <label class="radio"><input type="radio" name="education" value="High school or equivalent" required />High school or equivalent</label>
-              <label class="radio"><input type="radio" name="education" value="Bachelor's degree" />Bachelor's degree</label>
-              <label class="radio"><input type="radio" name="education" value="Master's degree" />Master's degree</label>
-              <label class="radio"><input type="radio" name="education" value="Doctorate" />Doctorate</label>
-              <label class="radio"><input type="radio" name="education" value="Other" />Other</label>
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="education"
+                  value="High school or equivalent"
+                  required
+                />High school or equivalent</label
+              >
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="education"
+                  value="Bachelor's degree"
+                />Bachelor's degree</label
+              >
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="education"
+                  value="Master's degree"
+                />Master's degree</label
+              >
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="education"
+                  value="Doctorate"
+                />Doctorate</label
+              >
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="education"
+                  value="Other"
+                />Other</label
+              >
             </fieldset>
 
             <div class="actions">
               <button id="submitBtn" type="submit">Submit</button>
             </div>
 
-            <div id="message" role="status" aria-live="polite" class="message"></div>
+            <div
+              id="message"
+              role="status"
+              aria-live="polite"
+              class="message"
+            ></div>
           </form>
         </main>
       </div>
     </div>
+
+    <footer class="footer" id="footer"></footer>
+    <script src="footer.js"></script>
   </body>
 </html>

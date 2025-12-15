@@ -5,17 +5,21 @@
     <title>TECH50K</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="footer.css" />
   </head>
 
   <body class="rtl">
     <!-- Header -->
     <header class="navbar">
       <div class="logo">
-        <span>TECH50K</span>
-        <span class="logo-icon">💡</span>
+        <a href="index-ar.html" class="logo-link">
+          <img
+            src="assets/images/logo.svg"
+            alt="TECH50K Logo"
+            class="logo-img"
+          />
+        </a>
       </div>
-
-
 
       <!-- Language switcher -->
       <div class="lang-switcher">
@@ -28,9 +32,7 @@
       <div class="hero-badge-wrapper">
         <div class="hero-badge">
           <span class="badge-new">جديد</span>
-          <span class="badge-text">
-            المنصة التي تصنع الجيل الرقمي السوري
-          </span>
+          <span class="badge-text"> المنصة التي تصنع الجيل الرقمي السوري </span>
         </div>
       </div>
 
@@ -39,9 +41,7 @@
         نحو غدٍ رقمي
       </h1>
 
-      <p>
-        تمكين الشباب السوري بالمهارات الرقمية وفرص المستقبل.
-      </p>
+      <p>تمكين الشباب السوري بالمهارات الرقمية وفرص المستقبل.</p>
 
       <button class="cta">ابدأ الآن</button>
     </section>
@@ -78,9 +78,7 @@
         <div class="card">
           <div class="card-icon">📚</div>
           <h3 class="card-title">نموذج تعلم رقمي مبتكر</h3>
-          <p class="card-desc">
-            نموذج تعلم مرن وحديث يواكب متطلبات العصر.
-          </p>
+          <p class="card-desc">نموذج تعلم مرن وحديث يواكب متطلبات العصر.</p>
         </div>
 
         <div class="card">
@@ -112,9 +110,7 @@
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>
-              يمكن لأي شخص مهتم بتعلم المهارات الرقمية والتقنية الانضمام.
-            </p>
+            <p>يمكن لأي شخص مهتم بتعلم المهارات الرقمية والتقنية الانضمام.</p>
           </div>
         </div>
 
@@ -124,9 +120,7 @@
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>
-              نعم، توفر المبادرة وصولاً مجانياً إلى جميع المواد التعليمية.
-            </p>
+            <p>نعم، توفر المبادرة وصولاً مجانياً إلى جميع المواد التعليمية.</p>
           </div>
         </div>
 
@@ -136,54 +130,25 @@
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>
-              لا، المبادرة مناسبة للمبتدئين وأصحاب المستوى المتوسط.
-            </p>
+            <p>لا، المبادرة مناسبة للمبتدئين وأصحاب المستوى المتوسط.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-section footer-logo-section">
-          <div class="footer-logo">TECH50K</div>
-          <p class="footer-desc">
-            تمكين الشباب السوري بالمهارات الرقمية وفرص المستقبل.
-          </p>
-        </div>
-
-        <div class="footer-section footer-links">
-          <h4>حول</h4>
-          <ul>
-            <li><a href="about-ar.html">من نحن</a></li>
-            <li><a href="privacy-ar.html">سياسة الخصوصية</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section footer-social">
-          <h4>تواصل معنا</h4>
-          <div class="social-icons">
-            <a href="#">🐦</a>
-            <a href="#">🔗</a>
-            <a href="#">📘</a>
-            <a href="#">📸</a>
-          </div>
-        </div>
-      </div>
-
-      <p class="footer-copy">
-        © 2025 TECH50K. جميع الحقوق محفوظة.
-      </p>
-    </footer>
-
     <script src="script.js"></script>
     <!-- Modal form (Arabic) -->
     <div id="modal" class="modal" aria-hidden="true">
       <div class="modal-overlay" data-close="true"></div>
-      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title-ar">
-        <button class="modal-close" aria-label="Close form" data-close="true">✕</button>
+      <div
+        class="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title-ar"
+      >
+        <button class="modal-close" aria-label="Close form" data-close="true">
+          ✕
+        </button>
         <h2 id="modal-title-ar">انضم الى قائمة الانتظار</h2>
         <p class="modal-sub">املأ النموذج أدناه للانضمام إلى المبادرة</p>
 
@@ -193,12 +158,24 @@
 
             <label class="field">
               <span class="label-text">الاسم الكامل</span>
-              <input type="text" name="fullName" id="fullName" required autocomplete="name" />
+              <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                required
+                autocomplete="name"
+              />
             </label>
 
             <label class="field">
               <span class="label-text">البريد الإلكتروني</span>
-              <input type="email" name="email" id="email" required autocomplete="email" />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                autocomplete="email"
+              />
             </label>
 
             <label class="field">
@@ -225,29 +202,77 @@
 
             <fieldset class="field gender">
               <legend class="label-text">الجنس</legend>
-              <label class="radio"><input type="radio" name="gender" value="Female" required />أنثى</label>
-              <label class="radio"><input type="radio" name="gender" value="Male" />ذكر</label>
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  required
+                />أنثى</label
+              >
+              <label class="radio"
+                ><input type="radio" name="gender" value="Male" />ذكر</label
+              >
             </fieldset>
 
-            <input type="hidden" id="access_key" value="0da79a34-e732-42ba-84af-06e813cef769" />
+            <input
+              type="hidden"
+              id="access_key"
+              value="0da79a34-e732-42ba-84af-06e813cef769"
+            />
 
             <fieldset class="field">
               <legend class="label-text">أعلى مستوى تعليمي</legend>
-              <label class="radio"><input type="radio" name="education" value="الثانوية أو ما يعادلها" required />الثانوية أو ما يعادلها</label>
-              <label class="radio"><input type="radio" name="education" value="درجة البكالوريوس" />درجة البكالوريوس</label>
-              <label class="radio"><input type="radio" name="education" value="درجة الماجستير" />درجة الماجستير</label>
-              <label class="radio"><input type="radio" name="education" value="دكتوراه" />دكتوراه</label>
-              <label class="radio"><input type="radio" name="education" value="أخرى" />أخرى</label>
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="education"
+                  value="الثانوية أو ما يعادلها"
+                  required
+                />الثانوية أو ما يعادلها</label
+              >
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="education"
+                  value="درجة البكالوريوس"
+                />درجة البكالوريوس</label
+              >
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="education"
+                  value="درجة الماجستير"
+                />درجة الماجستير</label
+              >
+              <label class="radio"
+                ><input
+                  type="radio"
+                  name="education"
+                  value="دكتوراه"
+                />دكتوراه</label
+              >
+              <label class="radio"
+                ><input type="radio" name="education" value="أخرى" />أخرى</label
+              >
             </fieldset>
 
             <div class="actions">
               <button id="submitBtn" type="submit">إرسال</button>
             </div>
 
-            <div id="message" role="status" aria-live="polite" class="message"></div>
+            <div
+              id="message"
+              role="status"
+              aria-live="polite"
+              class="message"
+            ></div>
           </form>
         </main>
       </div>
     </div>
+
+    <footer class="footer" id="footer"></footer>
+    <script src="footer.js"></script>
   </body>
 </html>

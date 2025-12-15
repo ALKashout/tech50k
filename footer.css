@@ -1,0 +1,126 @@
+/* ===== Footer Common Styles ===== */
+.footer-container {
+  background-color: #111; /* خلفية داكنة */
+  color: #fff; /* نص أبيض */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 40px;
+  gap: 20px;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.footer-section {
+  flex: 1 1 auto; /* مرن حسب المحتوى */
+  min-width: 0;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.footer-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #1da1f2; /* لون عند المرور */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-icons a img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* أيقونات بيضاء */
+  transition: filter 0.3s;
+}
+
+.social-icons a:hover img {
+  filter: brightness(0) invert(0.6); /* تأثير عند المرور */
+}
+
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* ===== RTL Support ===== */
+body.rtl .footer-container {
+  direction: rtl;
+}
+
+/* ===== Responsive for Mobile ===== */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+    gap: 12px;
+  }
+
+  .footer-section {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .footer-logo {
+    font-size: 1.5rem;
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+  }
+
+  .footer-links h4,
+  .footer-social h4 {
+    font-size: 1rem;
+  }
+
+  .social-icons {
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .social-icons a img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-copy {
+    margin-top: 20px;
+    font-size: 0.8rem;
+  }
+}

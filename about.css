@@ -236,3 +236,19 @@ body.rtl .social-icons a {
 body.rtl .hero {
   text-align: right;
 }
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.logo-link:hover {
+  opacity: 0.9;
+}
+.logo-img {
+  height: 36px;  
+  width: auto;
+  display: block;
+}
