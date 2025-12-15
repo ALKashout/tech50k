@@ -1,291 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>TECH50K</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="footer.css" />
-  </head>
-  <body>
-    <!-- Header -->
-    <header class="navbar">
-      <div class="logo">
-        <a href="index.html" class="logo-link">
-          <img
-            src="assets/images/logo.svg"
-            alt="TECH50K Logo"
-            class="logo-img"
-          />
-        </a>
-      </div>
 
-      <!-- Language switcher -->
-      <div class="lang-switcher">
-        <a href="index-ar.html" aria-label="Arabic">عربي</a>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <title>TECH50K</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="footer.css" />
+</head>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-badge-wrapper">
-        <div class="hero-badge">
-          <span class="badge-new">NEW</span>
-          <span class="badge-text"
-            >The Platform Shaping Syria’s Digital Generation</span
-          >
-        </div>
-      </div>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo.svg" alt="TECH50K Logo" class="logo-img" />
+      </a>
+    </div>
 
-      <h1>
-        Fifty Thousand Opportunities,<br />
-        Towards a Digital Tomorrow
-      </h1>
-      <p>
-        Empowering Syrian youth with digital skills and future-ready
-        opportunities.
-      </p>
-      <button class="cta">Get Started</button>
-    </section>
+    <!-- Language switcher -->
+    <div class="lang-switcher">
+      <a href="index-ar.html" aria-label="Arabic">عربي</a>
+    </div>
+  </header>
 
-    <!-- Strategic Pillars -->
-    <section class="pillars">
-      <h2>Our Strategic Pillars</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="card-icon">💻</div>
-          <h3 class="card-title">Empowering Syrian Youth</h3>
-          <p class="card-desc">
-            Providing skills and opportunities for young Syrians to thrive in
-            the digital world.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🌐</div>
-          <h3 class="card-title">Bridging the Digital Literacy Gap</h3>
-          <p class="card-desc">
-            Ensuring access to essential digital skills for everyone.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">👩‍💻</div>
-          <h3 class="card-title">Supporting Women’s Participation in Tech</h3>
-          <p class="card-desc">
-            Encouraging and empowering women to join the tech industry.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">📚</div>
-          <h3 class="card-title">An Innovative Digital Learning Model</h3>
-          <p class="card-desc">
-            A flexible and modern approach to digital education.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3 class="card-title">An Initiative for Everyone</h3>
-          <p class="card-desc">
-            Open to all, providing equal opportunities for digital learning.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">💡</div>
-          <h3 class="card-title">A Flexible, Accessible Online Platform</h3>
-          <p class="card-desc">
-            Learn anywhere, anytime, through our user-friendly platform.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-      <h2>FAQ</h2>
-
-      <div class="faq-grid">
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Who can join the initiative?</span>
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Anyone interested in learning digital and technical skills.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Is the training free?</span>
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              Yes, the initiative provides free access to all learning
-              materials.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Is the initiative only for beginners?</span>
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              No, it is designed for both beginners and intermediate learners.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script src="script.js"></script>
-    <!-- Modal form (hidden by default) -->
-    <div id="modal" class="modal" aria-hidden="true">
-      <div class="modal-overlay" data-close="true"></div>
-      <div
-        class="modal-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-title"
-      >
-        <button class="modal-close" aria-label="Close form" data-close="true">
-          ✕
-        </button>
-        <h2 id="modal-title">Join the Waitlist</h2>
-        <p class="modal-sub">Fill the form below to join the initiative.</p>
-
-        <main class="wrap">
-          <form id="contactForm" class="card" novalidate>
-            <h1 class="title">Contact</h1>
-
-            <label class="field">
-              <span class="label-text">Full Name</span>
-              <input
-                type="text"
-                name="fullName"
-                id="fullName"
-                required
-                autocomplete="name"
-              />
-            </label>
-
-            <label class="field">
-              <span class="label-text">Email</span>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                required
-                autocomplete="email"
-              />
-            </label>
-
-            <label class="field">
-              <span class="label-text">Country</span>
-              <select name="country" id="country" required>
-                <option value="">Loading countries…</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span class="label-text">Age group</span>
-              <select name="ageGroup" id="ageGroup" required>
-                <option value="">Select your age group</option>
-                <option value="under_13">Under 13</option>
-                <option value="13_17">13-17</option>
-                <option value="18_24">18-24</option>
-                <option value="25_34">25-34</option>
-                <option value="35_44">35-44</option>
-                <option value="45_54">45-54</option>
-                <option value="55_64">55-64</option>
-                <option value="65_plus">65 or older</option>
-              </select>
-            </label>
-
-            <fieldset class="field gender">
-              <legend class="label-text">Gender</legend>
-              <label class="radio"
-                ><input
-                  type="radio"
-                  name="gender"
-                  value="Female"
-                  required
-                />Female</label
-              >
-              <label class="radio"
-                ><input type="radio" name="gender" value="Male" />Male</label
-              >
-            </fieldset>
-
-            <input
-              type="hidden"
-              id="access_key"
-              value="0da79a34-e732-42ba-84af-06e813cef769"
-            />
-
-            <fieldset class="field">
-              <legend class="label-text">Highest level of education</legend>
-              <label class="radio"
-                ><input
-                  type="radio"
-                  name="education"
-                  value="High school or equivalent"
-                  required
-                />High school or equivalent</label
-              >
-              <label class="radio"
-                ><input
-                  type="radio"
-                  name="education"
-                  value="Bachelor's degree"
-                />Bachelor's degree</label
-              >
-              <label class="radio"
-                ><input
-                  type="radio"
-                  name="education"
-                  value="Master's degree"
-                />Master's degree</label
-              >
-              <label class="radio"
-                ><input
-                  type="radio"
-                  name="education"
-                  value="Doctorate"
-                />Doctorate</label
-              >
-              <label class="radio"
-                ><input
-                  type="radio"
-                  name="education"
-                  value="Other"
-                />Other</label
-              >
-            </fieldset>
-
-            <div class="actions">
-              <button id="submitBtn" type="submit">Submit</button>
-            </div>
-
-            <div
-              id="message"
-              role="status"
-              aria-live="polite"
-              class="message"
-            ></div>
-          </form>
-        </main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge-wrapper">
+      <div class="hero-badge">
+        <span class="badge-new">NEW</span>
+        <span class="badge-text">The Platform Shaping Syria’s Digital Generation</span>
       </div>
     </div>
 
-    <footer class="footer" id="footer"></footer>
-    <script src="footer.js"></script>
-  </body>
+    <h1>
+      Fifty Thousand Opportunities,<br />
+      Towards a Digital Tomorrow
+    </h1>
+    <p>
+      Empowering Syrian youth with digital skills and future-ready
+      opportunities.
+    </p>
+    <button class="cta">Get Started</button>
+  </section>
+
+  <!-- Strategic Pillars -->
+  <section class="pillars">
+    <h2>Our Strategic Pillars</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <h3 class="card-title">Empowering Syrian Youth</h3>
+        <p class="card-desc">
+          Providing skills and opportunities for young Syrians to thrive in
+          the digital world.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3 class="card-title">Bridging the Digital Literacy Gap</h3>
+        <p class="card-desc">
+          Ensuring access to essential digital skills for everyone.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">👩‍💻</div>
+        <h3 class="card-title">Supporting Women’s Participation in Tech</h3>
+        <p class="card-desc">
+          Encouraging and empowering women to join the tech industry.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3 class="card-title">An Innovative Digital Learning Model</h3>
+        <p class="card-desc">
+          A flexible and modern approach to digital education.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3 class="card-title">An Initiative for Everyone</h3>
+        <p class="card-desc">
+          Open to all, providing equal opportunities for digital learning.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">💡</div>
+        <h3 class="card-title">A Flexible, Accessible Online Platform</h3>
+        <p class="card-desc">
+          Learn anywhere, anytime, through our user-friendly platform.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>FAQ</h2>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Who can join the initiative?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Anyone interested in learning digital and technical skills.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Is the training free?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes, the initiative provides free access to all learning
+            materials.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Is the initiative only for beginners?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            No, it is designed for both beginners and intermediate learners.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Who runs the initiative?</span>
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          It is provided by the Syrian British Professionals Network (SBPN).
+        </p>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Do I need prior technical experience to join?</span>
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          The program is open to all Syrian youth, including those with no prior experience in computers or digital
+          technologies.
+        </p>
+      </div>
+    </div>
+    </div>
+
+
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>What age groups are eligible?</span>
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          The initiative targets Syrians of all ages, with a special focus on youth aged 16–35, while welcoming anyone
+          motivated to learn.
+        </p>
+      </div>
+    </div>
+    </div>
+
+
+  </section>
+
+
+
+
+
+  <script src="script.js"></script>
+  <!-- Modal form (hidden by default) -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close="true"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Close form" data-close="true">
+        ✕
+      </button>
+      <h2 id="modal-title">Join the Waitlist</h2>
+      <p class="modal-sub">Fill the form below to join the initiative.</p>
+
+      <main class="wrap">
+        <form id="contactForm" class="card" novalidate>
+          <h1 class="title">Contact</h1>
+
+          <label class="field">
+            <span class="label-text">Full Name</span>
+            <input type="text" name="fullName" id="fullName" required autocomplete="name" />
+          </label>
+
+          <label class="field">
+            <span class="label-text">Email</span>
+            <input type="email" name="email" id="email" required autocomplete="email" />
+          </label>
+
+          <label class="field">
+            <span class="label-text">Country</span>
+            <select name="country" id="country" required>
+              <option value="">Loading countries…</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="label-text">Age group</span>
+            <select name="ageGroup" id="ageGroup" required>
+              <option value="">Select your age group</option>
+              <option value="under_13">Under 13</option>
+              <option value="13_17">13-17</option>
+              <option value="18_24">18-24</option>
+              <option value="25_34">25-34</option>
+              <option value="35_44">35-44</option>
+              <option value="45_54">45-54</option>
+              <option value="55_64">55-64</option>
+              <option value="65_plus">65 or older</option>
+            </select>
+          </label>
+
+          <fieldset class="field gender">
+            <legend class="label-text">Gender</legend>
+            <label class="radio"><input type="radio" name="gender" value="Female" required />Female</label>
+            <label class="radio"><input type="radio" name="gender" value="Male" />Male</label>
+          </fieldset>
+
+          <input type="hidden" id="access_key" value="0da79a34-e732-42ba-84af-06e813cef769" />
+
+          <fieldset class="field">
+            <legend class="label-text">Highest level of education</legend>
+            <label class="radio"><input type="radio" name="education" value="High school or equivalent" required />High
+              school or equivalent</label>
+            <label class="radio"><input type="radio" name="education" value="Bachelor's degree" />Bachelor's
+              degree</label>
+            <label class="radio"><input type="radio" name="education" value="Master's degree" />Master's degree</label>
+            <label class="radio"><input type="radio" name="education" value="Doctorate" />Doctorate</label>
+            <label class="radio"><input type="radio" name="education" value="Other" />Other</label>
+          </fieldset>
+
+          <div class="actions">
+            <button id="submitBtn" type="submit">Submit</button>
+          </div>
+
+          <div id="message" role="status" aria-live="polite" class="message"></div>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <footer class="footer" id="footer"></footer>
+  <script src="footer.js"></script>
+</body>
+
 </html>
