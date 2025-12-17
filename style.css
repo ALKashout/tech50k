@@ -125,7 +125,7 @@ font-size: clamp(1.4rem, 1.6rem + 1vw, 2.2rem);
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 20px;
-  font-weight: 20;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
