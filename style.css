@@ -90,7 +90,7 @@ font-size: clamp(1.4rem, 1.6rem + 1vw, 2.2rem);
   border: none;
   padding: 20px;
   border-radius: 8px;
-  color: #ffcc00;
+  color: #dcb827;
   cursor: pointer;
   font-size: 24px;
   transition: all 0.3s ease;
@@ -120,12 +120,12 @@ font-size: clamp(1.4rem, 1.6rem + 1vw, 2.2rem);
 }
 
 .badge-new {
-  background-color: #22c55e;
+  background-color: #1c8442;
   color: #111827;
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 20px;
-  font-weight: 7;
+  font-weight: 20;
   text-transform: uppercase;
 }
 
@@ -200,7 +200,7 @@ font-size: clamp(1.4rem, 1.6rem + 1vw, 2.2rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #facc15;
+  color: #dcb827;
   font-size: 16px;
   cursor: pointer;
   text-align: left;
