@@ -130,7 +130,7 @@ font-size: clamp(1.4rem, 1.6rem + 1vw, 2.2rem);
 }
 
 .badge-text {
-  color: #ffcc00;
+  color:  #dcb827;
   font-size: 1rem;
   font-weight: 700;
 }
@@ -246,6 +246,7 @@ font-size: clamp(1.4rem, 1.6rem + 1vw, 2.2rem);
   max-width: 1100px;
   margin: auto;
   gap: 40px;
+   border-radius: 16px;
 }
 
 .footer-section {
@@ -269,7 +270,7 @@ font-size: clamp(1.4rem, 1.6rem + 1vw, 2.2rem);
 .footer-social h4 {
   font-size: 16px;
   font-weight: 600;
-  color: #facc15;
+  color:  #dcb827;
   margin-bottom: 10px;
 }
 
