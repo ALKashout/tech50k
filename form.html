@@ -47,6 +47,22 @@
           </select>
         </label>
 
+        <div class="field">
+          <span id="label-phone" class="label-text">Phone number</span>
+          <div class="phone-input">
+            <select name="phoneCode" id="phoneCode" required>
+              <option value="">Loading…</option>
+            </select>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              required
+              autocomplete="tel-national"
+            />
+          </div>
+        </div>
+
         <label class="field">
           <span id="label-age" class="label-text">Age group</span>
           <select name="ageGroup" id="ageGroup" required>

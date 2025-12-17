@@ -55,7 +55,8 @@ function wireModal(modal, isArabic) {
             title: 'تواصل معنا',
             name: 'الاسم الكامل',
             email: 'البريد الإلكتروني',
-            country: 'الدولة',
+            country: 'بلد الإقامة',
+            phone: 'رقم الهاتف',
             age: 'الفئة العمرية',
             submit: 'إرسال',
             sending: 'جارٍ الإرسال…',
@@ -67,7 +68,8 @@ function wireModal(modal, isArabic) {
             title: 'Contact Us',
             name: 'Full Name',
             email: 'Email',
-            country: 'Country',
+            country: 'Country of Residence',
+            phone: 'Phone number',
             age: 'Age group',
             submit: 'Submit',
             sending: 'Sending…',
@@ -140,6 +142,7 @@ function wireModal(modal, isArabic) {
     modal.querySelector('#label-name').textContent = texts.name;
     modal.querySelector('#label-email').textContent = texts.email;
     modal.querySelector('#label-country').textContent = texts.country;
+    modal.querySelector('#label-phone').textContent = texts.phone;
     modal.querySelector('#label-age').textContent = texts.age;
 
     // تحديث Age Group
@@ -198,6 +201,35 @@ function wireModal(modal, isArabic) {
         .catch(err => {
             console.error('Failed to load countries', err);
             countrySelect.innerHTML = `<option value="">${texts.selectCountry}</option>`;
+        });
+
+    // Phone Codes
+    const phoneCodeSelect = modal.querySelector('#phoneCode');
+    fetch('https://restcountries.com/v3.1/all?fields=idd,cca2')
+        .then(res => res.json())
+        .then(list => {
+            const phoneCodes = list
+                .map(c => ({
+                    code: c.cca2,
+                    prefix: c.idd.root + (c.idd.suffixes && c.idd.suffixes.length > 0 ? c.idd.suffixes[0] : ''),
+                }))
+                .filter(c => c.code && c.prefix)
+
+            phoneCodeSelect.innerHTML = `<option value="">--</option>`;
+            const uniquePhoneCodes = [...new Map(phoneCodes.map(item => [item['prefix'], item])).values()];
+
+            uniquePhoneCodes.sort((a, b) => a.code.localeCompare(b.code));
+
+            uniquePhoneCodes.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.prefix;
+                opt.textContent = `${c.code} (${c.prefix})`;
+                phoneCodeSelect.appendChild(opt);
+            });
+        })
+        .catch(err => {
+            console.error('Failed to load phone codes', err);
+            phoneCodeSelect.innerHTML = `<option value="">--</option>`;
         });
 
     // Form submit

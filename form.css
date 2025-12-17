@@ -123,6 +123,7 @@
 
 .modal-panel input[type="text"],
 .modal-panel input[type="email"],
+.modal-panel input[type="tel"],
 .modal-panel select {
     width: 100%;
     padding: 10px 12px;
@@ -208,4 +209,14 @@
 #modal-title,
 .modal-panel .modal-sub {
     position: relative;
-    z-index: 1225;}
+    z-index: 1225;
+}
+
+.phone-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.phone-input select {
+  flex: 0 0 120px;
+}
