@@ -1,7 +1,7 @@
 /* ===== Footer Common Styles ===== */
 .footer-container {
-  background-color: #111; 
-  color: #fff; 
+  background-color: #01352d ; 
+  color: #b9a779; 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -30,11 +30,13 @@
 .footer-social h4 {
   font-size: 1.1rem;
   margin-bottom: 12px;
+  
 }
 
 .footer-links ul {
   list-style: none;
   padding: 0;
+  
 }
 
 .footer-links li {
@@ -55,6 +57,7 @@
   display: flex;
   gap: 15px;
   align-items: center;
+ 
 }
 
 .social-icons a img {
@@ -62,6 +65,8 @@
   height: 24px;
   filter: brightness(0) invert(1); 
   transition: filter 0.3s;
+  color: #b9a779; 
+  
 }
 
 .social-icons a:hover img {
@@ -74,6 +79,7 @@
   margin-top: 25px;
   font-size: 0.85rem;
   opacity: 0.8;
+  color: #b9a779; 
 }
 
 /* ===== RTL Support ===== */

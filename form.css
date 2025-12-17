@@ -27,9 +27,9 @@
     width: 480px;
     max-width: calc(100% - 40px);
     max-height: 80vh;
-    /* أقصى ارتفاع */
+  
     overflow-y: auto;
-    /* scroll إذا المحتوى زايد */
+   
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(2, 6, 23, 0.6);
     z-index: 1210;

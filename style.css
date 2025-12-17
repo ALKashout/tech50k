@@ -7,8 +7,8 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0b1220, #0f1b2d);
-  color: white;
+  background: linear-gradient(135deg, #002623, #002623);
+  color: #b9a779;
 }
 
 /* ===== Navbar ===== */
@@ -32,26 +32,26 @@ body {
   font-size: 28px;
 } */
 
-.navbar a {
+/* .navbar a {
   color: #ccc;
   margin-left:40px;
   text-decoration: none;
-}
+} */
 
 /* Language Switcher */
 .lang-switcher a {
-  color: #facc15;
+  color: #b9a779;
   text-decoration: none;
   font-weight: 600;
   font-size: 24px;
   padding: 8px 16px;
-  border: 2px solid #facc15;
+  border: 2px solid #b9a779;
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .lang-switcher a:hover {
-  background-color: #facc15;
+  background-color: #b9a779;
   color: #111827;
 }
 
@@ -67,30 +67,41 @@ body {
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 6vw + 1rem, 5rem);
- 
-  line-height: 1;
- 
+ font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+ letter-spacing: 0.05em;
+  line-height: 1.5;
   margin-bottom: 20px;
+  color: #b9a779;
 }
 
 
 .hero p {
 
   margin-bottom: 40px;
-  font-size: clamp(2rem, 2rem + 2rem, 2rem);
-  margin-top: 12px;
+font-size: clamp(1.4rem, 1.6rem + 1vw, 2.2rem);
+  margin-top: 20px;
+   margin-bottom: 20px;
+   color: #c3bdb1;
 
 }
 
 .cta {
-  background: #22c55e;
+  background: #01352d;
   border: none;
-  padding: 20px 40px;
+  padding: 20px;
   border-radius: 8px;
-  color: black;
+  color: #ffcc00;
   cursor: pointer;
+  font-size: 24px;
+  transition: all 0.3s ease;
 }
+.cta:hover {
+  background: #03483c;     
+  color: #ffffff;         
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(1, 35, 30, 0.3);
+}
+
 
 /* Hero Badge */
 .hero-badge-wrapper {
@@ -103,7 +114,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 16px;
-  padding: 16px 32px;
+  padding: 16px 16px;
   border-radius: 16px;
   background-color: rgba(255, 255, 255, 0.05);
 }
@@ -114,19 +125,20 @@ body {
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 7;
   text-transform: uppercase;
 }
 
 .badge-text {
-  color: #facc15;
+  color: #ffcc00;
   font-size: 1rem;
   font-weight: 700;
 }
 
 /* ===== Pillars / Cards ===== */
 .pillars {
-  padding: 70px 30px;
+  padding: 100px 30px;
+  
 }
 
 .grid {
@@ -137,7 +149,7 @@ body {
 }
 
 .card {
-  background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+  background: linear-gradient(180deg, #01352d 0%, #024239 100%);
   padding: 32px 28px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -156,11 +168,12 @@ body {
 .card-title {
   font-size: 20px;
   margin-bottom: 10px;
+  color: #b9a779;
 }
 
 .card-desc {
   font-size: 14px;
-  color: #9ca3af;
+  color: #a39e93;
 }
 
 .card:hover {
@@ -220,7 +233,7 @@ body {
 
 /* ===== Footer ===== */
 .footer {
-  background: linear-gradient(180deg, #0b1220, #020617);
+  background: linear-gradient(90deg,#03483c, #03483c);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding: 50px 20px 30px;
   color: #9ca3af;
@@ -302,8 +315,8 @@ body {
 
   /* Hero adjustments */
   .hero {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 32px;
     padding-bottom: 56px;
   }
@@ -323,6 +336,7 @@ body {
   .grid {
     grid-template-columns: 1fr;
     gap: 20px;
+    
   }
 
   /* Footer responsive */

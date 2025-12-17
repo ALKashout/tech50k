@@ -7,8 +7,8 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0b1220, #0f1b2d);
-  color: white;
+  background: linear-gradient(135deg, #002623, #002623);
+  color: #b9a779;
 }
 
 
@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
+  padding: 16px 16px;
 }
 
 .logo {
@@ -30,40 +30,47 @@ body {
 }
 
 .lang-switcher a {
-  color: #facc15;
+  color: #b9a779;
   text-decoration: none;
   font-weight: 600;
-  font-size: 16px;
-  padding: 6px 12px;
-  border: 1px solid #facc15;
-  border-radius: 6px;
+  font-size: 24px;
+  padding: 8px 16px;
+  border: 2px solid #b9a779;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .lang-switcher a:hover {
-  background-color: #facc15;
+  background-color: #b9a779;
   color: #111827;
 }
 
 /* Hero Section */
 .hero {
-  padding: 80px 20px;
-  text-align: left;
-  max-width: 900px;
-  margin: auto;
+
+  padding-top: 10px;
+  padding-bottom: 72px;
+  margin: 24px auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: 960px;
 }
 
 .hero h1 {
   font-size: 48px;
   line-height: 1.5;
   margin-bottom: 20px;
-  color: #facc15;
+    padding-left: 24px;
+  padding-right: 24px;
+ color: #b9a779;
 }
 
 .hero p {
   font-size: 20px;
   color: #ccc;
   line-height: 1.6;
+    padding-left: 24px;
+  padding-right: 24px;
   margin-bottom: 30px;
 }
 
@@ -71,12 +78,16 @@ body {
 section {
   padding: 30px 20px;
   max-width: 900px;
+    padding-left: 24px;
+  padding-right: 24px;
   margin: 0 auto;
 }
 
 section h2 {
   font-size: 32px;
-  color: #facc15;
+  color: #b9a779;
+    padding-left: 24px;
+  padding-right: 24px;
   margin-bottom: 10px;
 }
 
@@ -100,7 +111,7 @@ section.audience {
 
 /* Footer */
 .footer {
-  background: linear-gradient(180deg, #0b1220, #020617);
+  background: linear-gradient(90deg,#03483c, #03483c);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding: 50px 20px 30px;
   color: #9ca3af;
