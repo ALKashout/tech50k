@@ -120,19 +120,19 @@ font-size: clamp(1.4rem, 1.6rem + 1vw, 2.2rem);
 }
 
 .badge-new {
-  background-color: #1c8442;
-  color: #111827;
+  background-color: #22c55e;
+  color: #fefefe;
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
 .badge-text {
   color:  #dcb827;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* ===== Pillars / Cards ===== */
