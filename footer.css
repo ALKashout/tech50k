@@ -1,4 +1,11 @@
 /* ===== Footer Common Styles ===== */
+.footer {
+  background: linear-gradient(90deg,#03483c, #03483c);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 50px 20px 30px;
+  color: #9ca3af;
+}
+
 .footer-container {
   background-color: #01352d ; 
   color: #b9a779; 
@@ -6,7 +13,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 30px 40px;
-  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+  gap:40x;
+  border-radius: 16px;
   font-family: Inter, Arial, sans-serif;
 }
 
@@ -19,16 +29,19 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 10px;
+   color: white;
 }
 
 .footer-desc {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .footer-links h4,
 .footer-social h4 {
   font-size: 1.1rem;
+    font-weight: 600;
+  color: #facc15;
   margin-bottom: 12px;
   
 }
@@ -46,7 +59,7 @@
 .footer-links a {
   color: #fff;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -79,7 +92,7 @@
   margin-top: 25px;
   font-size: 0.85rem;
   opacity: 0.8;
-  color: #b9a779; 
+  color: #6b7280;
 }
 
 /* ===== RTL Support ===== */
