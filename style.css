@@ -416,6 +416,110 @@ body {
     width: auto;
     display: block;
   }
+  
+  /* Path section - vertical layout for mobile */
 
+  .path-track {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 24px;
+    position: relative;
+    align-items: flex-end;
+    
+  }
+
+
+  .path-dots {
+    position: absolute;
+    right: 24px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+ 
+  .path-dots::before {
+    display: none;
+  }
+
+  
+  .path-dots .dot {
+    display: none;
+  }
+
+
+  .path-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    flex: 1;
+    margin-right: 50px;
+  
+  }
+
+
+  .path-steps::before {
+    content: "";
+    position: absolute;
+    right: -50px;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background: linear-gradient(to bottom,
+        rgba(220, 184, 39, 0.9),
+        rgba(220, 184, 39, 0.15));
+    z-index: 0;
+  }
+
+ 
+  .path-step {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding: 20px;
+    position: relative;
+    background-color: #002623;
+    border-radius: 12px;
+    color: white;
+  }
+
+ 
+  .path-step::before {
+    content: "";
+    position: absolute;
+    right: -59px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: #002623;
+    border: 2px solid #dcb827;
+    border-radius: 50%;
+    z-index: 2;
+    display: block;
+  }
+
+  .path-step h3,
+  .path-step p {
+    position: relative;
+    z-index: 1;
+    margin-right: 0;
+  }
+
+  .path-step h3 {
+    margin-bottom: 8px;
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 18px;
+  }
+
+  .path-step p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
 
 }
