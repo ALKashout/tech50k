@@ -167,6 +167,20 @@ body {
   font-weight: 600;
 }
 
+.path-section {
+  max-width: 100%;
+  padding: 60px 20px; 
+  margin: 0 auto;
+}
+
+.path-title {
+  text-align: center;          
+  font-size: 2rem;            
+  font-weight: bold;          
+  color: #e8d77b;              
+  margin-bottom: 40px;        
+  letter-spacing: 1px;        
+}
 
 .path-track {
   position: relative;
@@ -445,7 +459,6 @@ body {
     display: none;
   }
 
-  
   .path-dots .dot {
     display: none;
   }
