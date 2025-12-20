@@ -1,259 +1,171 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    const lang = document.documentElement.lang || 'en';
-    const isArabic = lang === 'ar';
-    const formUrl = 'form.html';
+// form.js - Handles waitlist modal, country/phone code, bilingual UI for both EN/AR
 
-    try {
-        const res = await fetch(formUrl);
-        if (!res.ok) throw new Error('Failed to load form.html');
-        const html = await res.text();
-
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = html.trim();
-        const modal = wrapper.firstElementChild;
-        if (!modal) return;
-
-        document.body.appendChild(modal);
-        wireModal(modal, isArabic);
-    } catch (err) {
-        console.error('Error loading popup form:', err);
-    }
-});
-
-function wireModal(modal, isArabic) {
-    const openBtn = document.querySelector('.hero .cta');
-    const closeBtns = modal.querySelectorAll('[data-close]');
-    const form = modal.querySelector('#contactForm');
-
-    function setOpen(open) {
-        modal.setAttribute('aria-hidden', String(!open));
-        document.body.style.overflow = open ? 'hidden' : '';
-    }
-
-    openBtn?.addEventListener('click', () => setOpen(true));
-    closeBtns.forEach(btn => btn.addEventListener('click', () => setOpen(false)));
-    modal.addEventListener('click', e => {
-        if (e.target === modal.querySelector('.modal-overlay')) setOpen(false);
+// Helper: fetch country list and phone codes with flags
+async function loadCountriesAndCodes(countrySel, phoneSel) {
+  try {
+    const res = await fetch("https://restcountries.com/v3.1/all?fields=name,cca2,idd,flags");
+    const list = await res.json();
+    // Sort by English name
+    const mapped = list
+      .map((c) => ({
+        code: c.cca2 || "",
+        name: c.name?.common || "",
+        flag: c.flags?.emoji || "",
+        dial: c.idd?.root ? c.idd.root + (c.idd.suffixes ? c.idd.suffixes[0] : "") : ""
+      }))
+      .filter((c) => c.code && c.name && c.dial)
+      .sort((a, b) => a.name.localeCompare(b.name));
+    // Country dropdown
+    countrySel.innerHTML = '<option value="">Select</option>';
+    mapped.forEach((c) => {
+      const opt = document.createElement("option");
+      opt.value = c.code;
+      opt.textContent = c.name;
+      opt.setAttribute("data-flag", c.flag);
+      opt.setAttribute("data-dial", c.dial);
+      countrySel.appendChild(opt);
     });
-
-    if (!form) return;
-
-    modal.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
-
-    // تعديل موقع زر الإغلاق
-    const closeBtn = modal.querySelector('.modal-close');
-    if (isArabic) {
-        closeBtn.style.left = '12px';
-        closeBtn.style.right = 'auto';
-    } else {
-        closeBtn.style.right = '12px';
-        closeBtn.style.left = 'auto';
-    }
-
-    const texts = isArabic
-        ? {
-            title: 'تواصل معنا',
-            name: 'الاسم الكامل',
-            email: 'البريد الإلكتروني',
-            country: 'بلد الإقامة',
-            phone: 'رقم الهاتف',
-            age: 'الفئة العمرية',
-            submit: 'إرسال',
-            sending: 'جارٍ الإرسال…',
-            sent: 'تم إرسال النموذج بنجاح',
-            error: 'يرجى تعبئة النموذج بشكل صحيح',
-            selectCountry: 'اختر الدولة'
-        }
-        : {
-            title: 'Contact Us',
-            name: 'Full Name',
-            email: 'Email',
-            country: 'Country of Residence',
-            phone: 'Phone number',
-            age: 'Age group',
-            submit: 'Submit',
-            sending: 'Sending…',
-            sent: 'Form sent successfully',
-            error: 'Please complete the form correctly',
-            selectCountry: 'Select a country'
-        };
-
-    // تحديث النصوص الرئيسية
-    modal.querySelector('#modal-title').textContent = isArabic
-        ? 'انضم إلى القائمة الانتظارية'
-        : 'Join the Waitlist';
-
-    modal.querySelector('#modal-sub').textContent = isArabic
-        ? 'املأ النموذج أدناه للانضمام إلى المبادرة.'
-        : 'Fill the form below to join the initiative.';
-
-    const options = isArabic
-        ? {
-            ageGroups: [
-                { value: '', text: 'اختر الفئة العمرية' },
-                { value: 'under_13', text: 'أقل من 13' },
-                { value: '13_17', text: '13-17' },
-                { value: '18_24', text: '18-24' },
-                { value: '25_34', text: '25-34' },
-                { value: '35_44', text: '35-44' },
-                { value: '45_54', text: '45-54' },
-                { value: '55_64', text: '55-64' },
-                { value: '65_plus', text: '65 أو أكثر' },
-            ],
-            gender: [
-                { selector: '#gender-female', text: 'أنثى' },
-                { selector: '#gender-male', text: 'ذكر' },
-            ],
-            education: [
-                { value: 'High school or equivalent', text: 'الثانوية أو ما يعادلها' },
-                { value: "Bachelor's degree", text: 'درجة البكالوريوس' },
-                { value: "Master's degree", text: 'درجة الماجستير' },
-                { value: 'Doctorate', text: 'درجة الدكتوراه' },
-                { value: 'Other', text: 'أخرى' },
-            ],
-        }
-        : {
-            ageGroups: [
-                { value: '', text: 'Select your age group' },
-                { value: 'under_13', text: 'Under 13' },
-                { value: '13_17', text: '13-17' },
-                { value: '18_24', text: '18-24' },
-                { value: '25_34', text: '25-34' },
-                { value: '35_44', text: '35-44' },
-                { value: '45_54', text: '45-54' },
-                { value: '55_64', text: '55-64' },
-                { value: '65_plus', text: '65 or older' },
-            ],
-            gender: [
-                { selector: '#gender-female', text: 'Female' },
-                { selector: '#gender-male', text: 'Male' },
-            ],
-            education: [
-                { value: 'High school or equivalent', text: 'High school or equivalent' },
-                { value: "Bachelor's degree", text: "Bachelor's degree" },
-                { value: "Master's degree", text: "Master's degree" },
-                { value: 'Doctorate', text: 'Doctorate' },
-                { value: 'Other', text: 'Other' },
-            ],
-        };
-
-    // تحديث Labels
-    modal.querySelector('#form-heading').textContent = texts.title;
-    modal.querySelector('#label-name').textContent = texts.name;
-    modal.querySelector('#label-email').textContent = texts.email;
-    modal.querySelector('#label-country').textContent = texts.country;
-    modal.querySelector('#label-phone').textContent = texts.phone;
-    modal.querySelector('#label-age').textContent = texts.age;
-
-    // تحديث Age Group
-    const ageSelect = modal.querySelector('#ageGroup');
-    ageSelect.innerHTML = '';
-    options.ageGroups.forEach(opt => {
-        const option = document.createElement('option');
-        option.value = opt.value;
-        option.textContent = opt.text;
-        ageSelect.appendChild(option);
+    // Phone code dropdown
+    phoneSel.innerHTML = '';
+    mapped.forEach((c) => {
+      const opt = document.createElement("option");
+      opt.value = c.dial;
+      opt.textContent = `${c.flag} ${c.dial} (${c.code})`;
+      phoneSel.appendChild(opt);
     });
-
-    // تحديث Gender
-    options.gender.forEach(g => {
-        const el = modal.querySelector(g.selector);
-        if (el) el.textContent = g.text;
-    });
-
-    // تحديث Education
-    options.education.forEach(e => {
-        const radio = modal.querySelector(`input[name="education"][value="${e.value}"]`);
-        if (radio) {
-            // اذا لم يوجد span للعرض ضيفه
-            let span = radio.parentElement.querySelector('.edu-text');
-            if (!span) {
-                span = document.createElement('span');
-                span.className = 'edu-text';
-                radio.parentElement.appendChild(span);
-            }
-            span.textContent = e.text;
-        }
-    });
-
-    // زر Submit
-    const submitBtn = modal.querySelector('#submitBtn');
-    submitBtn.textContent = texts.submit;
-
-    // Countries
-    const countrySelect = modal.querySelector('#country');
-    fetch('https://restcountries.com/v3.1/all?fields=name,cca2')
-        .then(res => res.json())
-        .then(list => {
-            const countries = list
-                .map(c => ({ code: c.cca2, name: c.name.common }))
-                .filter(c => c.code && c.name)
-                .sort((a, b) => a.name.localeCompare(b.name));
-
-            countrySelect.innerHTML = `<option value="">${texts.selectCountry}</option>`;
-            countries.forEach(c => {
-                const opt = document.createElement('option');
-                opt.value = c.code;
-                opt.textContent = c.name;
-                countrySelect.appendChild(opt);
-            });
-        })
-        .catch(err => {
-            console.error('Failed to load countries', err);
-            countrySelect.innerHTML = `<option value="">${texts.selectCountry}</option>`;
-        });
-
-    // Phone Codes
-    const phoneCodeSelect = modal.querySelector('#phoneCode');
-    fetch('https://restcountries.com/v3.1/all?fields=idd,cca2')
-        .then(res => res.json())
-        .then(list => {
-            const phoneCodes = list
-                .map(c => ({
-                    code: c.cca2,
-                    prefix: c.idd && c.idd.root ? c.idd.root + (c.idd.suffixes && c.idd.suffixes.length > 0 ? c.idd.suffixes[0] : '') : null,
-                }))
-                .filter(c => c.code && c.prefix)
-
-            phoneCodeSelect.innerHTML = `<option value="">--</option>`;
-            const uniquePhoneCodes = [...new Map(phoneCodes.map(item => [item['prefix'], item])).values()];
-
-            uniquePhoneCodes.sort((a, b) => a.code.localeCompare(b.code));
-
-            uniquePhoneCodes.forEach(c => {
-                const opt = document.createElement('option');
-                opt.value = c.prefix;
-                opt.textContent = `${c.code} (${c.prefix})`;
-                phoneCodeSelect.appendChild(opt);
-            });
-        })
-        .catch(err => {
-            console.error('Failed to load phone codes', err);
-            phoneCodeSelect.innerHTML = `<option value="">--</option>`;
-        });
-
-    // Form submit
-    const message = modal.querySelector('#message');
-    form.addEventListener('submit', async e => {
-        e.preventDefault();
-
-        if (!form.checkValidity()) {
-            message.textContent = texts.error;
-            message.style.color = '#f87171';
-            return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = texts.sending;
-        message.textContent = '';
-
-        setTimeout(() => {
-            message.textContent = texts.sent;
-            message.style.color = '#22c55e';
-            submitBtn.disabled = false;
-            submitBtn.textContent = texts.submit;
-            form.reset();
-            setTimeout(() => setOpen(false), 800);
-        }, 800);
-    });
+  } catch {
+    countrySel.innerHTML = '<option value="">Unable to load</option>';
+    phoneSel.innerHTML = '<option value="">Unable to load</option>';
+  }
 }
+
+// Helper: switch language (EN/AR)
+function setFormLang(lang, root) {
+  root.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+  root.querySelectorAll("[data-en],[data-ar]").forEach((el) => {
+    el.textContent = el.getAttribute(`data-${lang}`) || el.textContent;
+  });
+  // Set placeholders for select
+  const countrySel = root.querySelector("#country");
+  if (countrySel) countrySel.firstElementChild.textContent = lang === "ar" ? "اختر" : "Select";
+  const ageSel = root.querySelector("#ageGroup");
+  if (ageSel) ageSel.firstElementChild.textContent = lang === "ar" ? "اختر" : "Select";
+  // Submit button
+  const submitBtn = root.querySelector("#submitBtn");
+  if (submitBtn) submitBtn.textContent = submitBtn.getAttribute(`data-${lang}`);
+}
+
+// Modal logic for both EN/AR pages
+function setupWaitlistModal() {
+  const modal = document.getElementById("modal");
+  if (!modal) return;
+  const openBtn = document.querySelector(".hero .cta");
+  const closes = modal.querySelectorAll("[data-close]");
+  const form = modal.querySelector("#contactForm");
+  const countrySel = modal.querySelector("#country");
+  const phoneSel = modal.querySelector("#phoneCode");
+  const langEnBtn = modal.querySelector("#lang-en");
+  const langArBtn = modal.querySelector("#lang-ar");
+  let lang = document.documentElement.lang === "ar" ? "ar" : "en";
+
+  function setOpen(isOpen) {
+    modal.setAttribute("aria-hidden", String(!isOpen));
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }
+  if (openBtn) openBtn.addEventListener("click", () => setOpen(true));
+  closes.forEach((btn) => btn.addEventListener("click", () => setOpen(false)));
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) setOpen(false);
+  });
+
+  // Language toggle
+  function updateLang(newLang) {
+    lang = newLang;
+    setFormLang(lang, modal);
+    langEnBtn.classList.toggle("active", lang === "en");
+    langArBtn.classList.toggle("active", lang === "ar");
+  }
+  langEnBtn.addEventListener("click", () => updateLang("en"));
+  langArBtn.addEventListener("click", () => updateLang("ar"));
+  updateLang(lang);
+
+  // Populate country/phone code
+  loadCountriesAndCodes(countrySel, phoneSel);
+
+  // Form submission
+  if (form) {
+    const msg = modal.querySelector("#message");
+    const submitBtn = modal.querySelector("#submitBtn");
+    const accessKeyInput = modal.querySelector("#access_key");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        msg.textContent = lang === "ar" ? "يرجى تعبئة جميع الحقول بشكل صحيح." : "Please complete the form correctly.";
+        msg.style.color = "#f87171";
+        return;
+      }
+      const education = form.querySelector('input[name="education"]:checked')?.value;
+      const ageGroup = form.ageGroup?.value;
+      const gender = form.querySelector('input[name="gender"]:checked')?.value;
+      if (!education || !ageGroup || !gender) {
+        msg.textContent = lang === "ar" ? "يرجى تعبئة جميع الحقول بشكل صحيح." : "Please complete the form correctly.";
+        msg.style.color = "#f87171";
+        return;
+      }
+      const data = {
+        fullName: form.fullName.value.trim(),
+        email: form.email.value.trim(),
+        country: form.country.value,
+        phone: `${form.phoneCode.value} ${form.phoneNumber.value.trim()}`,
+        education,
+        ageGroup,
+        gender,
+      };
+      const access_key = accessKeyInput?.value?.trim();
+      if (!access_key || access_key === "YOUR_WEB3FORMS_ACCESS_KEY") {
+        msg.textContent = lang === "ar" ? "يرجى ضبط مفتاح Web3Forms قبل الإرسال." : "Please configure your Web3Forms access key before submitting.";
+        msg.style.color = "#f87171";
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = lang === "ar" ? "يتم الإرسال..." : "Sending…";
+      msg.textContent = "";
+      try {
+        const payload = {
+          access_key,
+          subject: `Waitlist: ${data.fullName}`,
+          name: data.fullName,
+          email: data.email,
+          message: `Country: ${data.country}\nPhone: ${data.phone}\nAge group: ${data.ageGroup}\nGender: ${data.gender}\nEducation: ${data.education}`,
+          phone: data.phone,
+          age_group: data.ageGroup,
+          gender: data.gender,
+          to: "aladdin@engineer.com",
+        };
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+        if (res.ok && json.success) {
+          msg.textContent = lang === "ar" ? "تم الإرسال بنجاح." : "Thanks — your message was sent.";
+          msg.style.color = "#22c55e";
+          form.reset();
+          setTimeout(() => setOpen(false), 900);
+        } else {
+          msg.textContent = json.message || (lang === "ar" ? "فشل الإرسال." : "Failed to send message.");
+          msg.style.color = "#f87171";
+        }
+      } catch (err) {
+        msg.textContent = lang === "ar" ? "خطأ في الشبكة. حاول لاحقاً." : "Network error. Please try again later.";
+        msg.style.color = "#f87171";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = lang === "ar" ? "إرسال" : "Submit";
+      }
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", setupWaitlistModal);
