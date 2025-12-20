@@ -30,7 +30,7 @@ async function loadCountriesAndCodes(countrySel, phoneSel) {
     mapped.forEach((c) => {
       const opt = document.createElement("option");
       opt.value = c.dial;
-      opt.textContent = `${c.flag} ${c.dial} (${c.code})`;
+      opt.textContent = `${c.code} (${c.dial})`;
       phoneSel.appendChild(opt);
     });
   } catch {
