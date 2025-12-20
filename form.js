@@ -211,7 +211,7 @@ function wireModal(modal, isArabic) {
             const phoneCodes = list
                 .map(c => ({
                     code: c.cca2,
-                    prefix: c.idd.root + (c.idd.suffixes && c.idd.suffixes.length > 0 ? c.idd.suffixes[0] : ''),
+                    prefix: c.idd && c.idd.root ? c.idd.root + (c.idd.suffixes && c.idd.suffixes.length > 0 ? c.idd.suffixes[0] : '') : null,
                 }))
                 .filter(c => c.code && c.prefix)
 

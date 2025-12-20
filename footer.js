@@ -1,4 +1,4 @@
-fetch('footer.html')
+fetch('../footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer').innerHTML = data;
@@ -12,9 +12,9 @@ fetch('footer.html')
             document.getElementById('footer-desc').textContent = 'تمكين الشباب السوري بالمهارات الرقمية والفرص المستقبلية.';
             document.getElementById('footer-links-title').textContent = 'حول';
             aboutLink.textContent = 'من نحن';
-            aboutLink.href = 'about-ar.html';
+            aboutLink.href = 'about.html';
             privacyLink.textContent = 'سياسة الخصوصية';
-            privacyLink.href = 'privacy-ar.html';
+            privacyLink.href = 'privacy.html';
             document.getElementById('footer-social-title').textContent = 'تواصل معنا';
             document.getElementById('footer-copy').textContent = '© 2025 TECH50K. جميع الحقوق محفوظة.';
         } else {
