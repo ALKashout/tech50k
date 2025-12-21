@@ -1,9 +1,9 @@
 /* ===== Footer Common Styles ===== */
 .footer {
-  background: linear-gradient(90deg,#03483c, #03483c);
+  background: linear-gradient(90deg,#002623, #03483c);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding: 50px 20px 30px;
-  color: #9ca3af;
+  color: #03483c;
 }
 
 .footer-container {
@@ -41,7 +41,7 @@
 .footer-social h4 {
   font-size: 1.1rem;
     font-weight: 600;
-  color: #facc15;
+  color:#b9a779;;
   margin-bottom: 12px;
   
 }
@@ -57,7 +57,7 @@
 }
 
 .footer-links a {
-  color: #fff;
+  color: #f4efe2;;
   text-decoration: none;
   transition: color 0.3s ease;
 }

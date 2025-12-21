@@ -17,45 +17,58 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 16px;
+  padding: 24px 24px;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
 }
 
 
 
+/* Language Switcher */
 .lang-switcher a {
   color: #b9a779;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 24px;
-  padding: 8px 16px;
-  border: 2px solid #b9a779;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  position: relative;
+
 }
 
-.lang-switcher a:hover {
+.lang-switcher a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
   background-color: #b9a779;
-  color: #111827;
+  transition: width 0.3s ease;
 }
+
+.lang-switcher a:hover::after {
+  width: 100%;
+}
+
 
 /* Hero Section */
 
 
 .hero h1 {
-
-  font-size: 48px;
+  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  letter-spacing: 0.05em;
   line-height: 1.5;
-  margin-bottom: 20px;
-    padding-left: 24px;
-  padding-right: 24px;
- color: #b9a779;
+  margin-bottom: 24px;
+  color: #b9a779;
 }
 
 .hero p {
   font-size: 20px;
   color: #ccc;
   line-height: 1.6;
-    padding-left: 24px;
+  padding-left: 24px;
   padding-right: 24px;
   margin-bottom: 30px;
 }
@@ -63,8 +76,8 @@ body {
 /* Sections */
 section {
   padding: 30px 20px;
-  max-width: 900px;
-    padding-left: 24px;
+  max-width: 1200px;
+  padding-left: 24px;
   padding-right: 24px;
   margin: 0 auto;
 }
@@ -72,23 +85,26 @@ section {
 section h2 {
   font-size: 32px;
   color: #b9a779;
-    padding-left: 24px;
+  padding-left: 24px;
   padding-right: 24px;
   margin-bottom: 10px;
 }
 
 section p,
 section ul {
-  font-size: 18px;
+  font-size: 24px;
   color: #ccc;
   line-height: 1.6;
   padding-left: 20px;
-  margin-bottom: 10px;
+  margin: 24px;
+  padding-right: 20px;
 }
 
 section ul li {
-  margin-bottom: 5px;
+  margin-bottom: 16px;
+  padding-right: 20px;
 }
+
 
 section.mission,
 section.audience {

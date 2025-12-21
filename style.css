@@ -78,7 +78,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  padding: 40px 40px;
+  padding: 60px 60px;
   display: flex;
   margin: 40px;
   opacity: 0.2;
@@ -114,7 +114,7 @@ body {
   border: none;
   padding: 20px;
   border-radius: 8px;
-  color: #dcb827;
+  color: #b9a779;
   cursor: pointer;
   font-size: 24px;
   transition: all 0.3s ease;
@@ -177,7 +177,7 @@ body {
   text-align: center;          
   font-size: 2rem;            
   font-weight: bold;          
-  color: #e8d77b;              
+  color: #b9a779;              
   margin-bottom: 40px;        
   letter-spacing: 1px;        
 }
@@ -205,7 +205,7 @@ body {
   height: 1px;
   background: linear-gradient(to left,
       rgba(220, 184, 39, 0.9),
-      rgba(220, 184, 39, 0.15));
+       rgba(220, 184, 39, 0.9));
   z-index: 0;
 }
 
@@ -245,7 +245,7 @@ body {
 }
 
 .path-step h3 {
-  color: #e8d77b;
+  color: #b9a779;
   margin-bottom: 10px;
   font-size: 1.05rem;
 }
@@ -265,7 +265,7 @@ body {
   text-align: center;          
   font-size: 2rem;            
   font-weight: bold;          
-  color: #e8d77b;              
+  color: #b9a779;              
   margin-bottom: 40px;        
   letter-spacing: 1px;        
 }
@@ -358,21 +358,9 @@ body {
 
 .card-desc {
   font-size: 20px;
-  color: #a39e93;
+  color: #b9a779;
   max-width: 85%;
 }
-
-/* ===== Mobile Friendly ===== */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    height: 220px;
-  }
-}
-
 
 
 /* ===== FAQ / Accordion ===== */
@@ -388,7 +376,7 @@ body {
   text-align: center;      
   font-size: 2rem;
   font-weight: bold;
-  color: #e8d77b;
+  color:#b9a779;
   margin-bottom: 40px;
 }
 
@@ -400,7 +388,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #dcb827;
+  color: #b9a779;
   font-size: 16px;
   cursor: pointer;
   text-align: left;
@@ -584,7 +572,7 @@ body.rtl .faq-answer p {
     width: 20px;
     height: 20px;
     background: #002623;
-    border: 2px solid #dcb827;
+    border: 2px solid #b9a779;
     border-radius: 50%;
     z-index: 2;
     display: block;
@@ -669,7 +657,7 @@ body.rtl .faq-answer p {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 12px;
-    color: #e8d77b;
+    color: #b9a779;
     line-height: 1.4;
   }
 
