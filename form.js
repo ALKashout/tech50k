@@ -1,7 +1,7 @@
 // form.js - Handles waitlist modal, country/phone code, bilingual UI for both EN/AR
 
 // Helper: fetch country list and phone codes with flags
-async function loadCountriesAndCodes(countrySel, phoneSel) {
+async function loadCountriesAndCodes(countrySel, phoneSel, lang) {
   try {
     const res = await fetch("https://restcountries.com/v3.1/all?fields=name,cca2,idd,flags");
     const list = await res.json();
@@ -16,7 +16,7 @@ async function loadCountriesAndCodes(countrySel, phoneSel) {
       .filter((c) => c.code && c.name && c.dial)
       .sort((a, b) => a.name.localeCompare(b.name));
     // Country dropdown
-    countrySel.innerHTML = '<option value="">Select</option>';
+    countrySel.innerHTML = `<option value="">${lang === "ar" ? "اختر الدولة" : "Select a country"}</option>`;
     mapped.forEach((c) => {
       const opt = document.createElement("option");
       opt.value = c.code;
@@ -26,7 +26,7 @@ async function loadCountriesAndCodes(countrySel, phoneSel) {
       countrySel.appendChild(opt);
     });
     // Phone code dropdown
-    phoneSel.innerHTML = '';
+    phoneSel.innerHTML = `<option value="">${lang === "ar" ? "رمز الدولة" : "Code"}</option>`;
     mapped.forEach((c) => {
       const opt = document.createElement("option");
       opt.value = c.dial;
@@ -34,138 +34,118 @@ async function loadCountriesAndCodes(countrySel, phoneSel) {
       phoneSel.appendChild(opt);
     });
   } catch {
-    countrySel.innerHTML = '<option value="">Unable to load</option>';
-    phoneSel.innerHTML = '<option value="">Unable to load</option>';
+    countrySel.innerHTML = `<option value="">${lang === "ar" ? "تعذر تحميل الدول" : "Unable to load countries"}</option>`;
+    phoneSel.innerHTML = `<option value="">${lang === "ar" ? "تعذر تحميل الرموز" : "Unable to load codes"}</option>`;
   }
 }
 
-// Helper: switch language (EN/AR)
-function setFormLang(lang, root) {
-  root.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
-  root.querySelectorAll("[data-en],[data-ar]").forEach((el) => {
-    el.textContent = el.getAttribute(`data-${lang}`) || el.textContent;
-  });
-  // Set placeholders for select
-  const countrySel = root.querySelector("#country");
-  if (countrySel) countrySel.firstElementChild.textContent = lang === "ar" ? "اختر" : "Select";
-  const ageSel = root.querySelector("#ageGroup");
-  if (ageSel) ageSel.firstElementChild.textContent = lang === "ar" ? "اختر" : "Select";
-  // Submit button
-  const submitBtn = root.querySelector("#submitBtn");
-  if (submitBtn) submitBtn.textContent = submitBtn.getAttribute(`data-${lang}`);
-}
+function initializeForm() {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
 
-// Modal logic for both EN/AR pages
-function setupWaitlistModal() {
-  const modal = document.getElementById("modal");
-  if (!modal) return;
-  const openBtn = document.querySelector(".hero .cta");
-  const closes = modal.querySelectorAll("[data-close]");
-  const form = modal.querySelector("#contactForm");
-  const countrySel = modal.querySelector("#country");
-  const phoneSel = modal.querySelector("#phoneCode");
-  const langEnBtn = modal.querySelector("#lang-en");
-  const langArBtn = modal.querySelector("#lang-ar");
-  let lang = document.documentElement.lang === "ar" ? "ar" : "en";
+  const countrySelect = document.getElementById("country");
+  const phoneCodeSelect = document.getElementById("phoneCode");
+  const msg = document.getElementById("message");
+  const submitBtn = document.getElementById("submitBtn");
+  const accessKeyInput = document.getElementById("access_key");
+  let currentLang = document.documentElement.lang;
 
-  function setOpen(isOpen) {
-    modal.setAttribute("aria-hidden", String(!isOpen));
-    document.body.style.overflow = isOpen ? "hidden" : "";
+  loadCountriesAndCodes(countrySelect, phoneCodeSelect, currentLang);
+
+  function showMessage(text, isError = false) {
+    msg.textContent = text;
+    msg.style.color = isError ? "#f87171" : "";
   }
-  if (openBtn) openBtn.addEventListener("click", () => setOpen(true));
-  closes.forEach((btn) => btn.addEventListener("click", () => setOpen(false)));
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) setOpen(false);
-  });
 
-  // Language toggle
-  function updateLang(newLang) {
-    lang = newLang;
-    setFormLang(lang, modal);
-    langEnBtn.classList.toggle("active", lang === "en");
-    langArBtn.classList.toggle("active", lang === "ar");
-  }
-  langEnBtn.addEventListener("click", () => updateLang("en"));
-  langArBtn.addEventListener("click", () => updateLang("ar"));
-  updateLang(lang);
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  // Populate country/phone code
-  loadCountriesAndCodes(countrySel, phoneSel);
+    if (!form.checkValidity()) {
+      showMessage(currentLang === "ar" ? "يرجى إكمال جميع الحقول بشكل صحيح." : "Please complete the form correctly.", true);
+      return;
+    }
 
-  // Form submission
-  if (form) {
-    const msg = modal.querySelector("#message");
-    const submitBtn = modal.querySelector("#submitBtn");
-    const accessKeyInput = modal.querySelector("#access_key");
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        msg.textContent = lang === "ar" ? "يرجى تعبئة جميع الحقول بشكل صحيح." : "Please complete the form correctly.";
-        msg.style.color = "#f87171";
-        return;
-      }
-      const education = form.querySelector('input[name="education"]:checked')?.value;
-      const ageGroup = form.ageGroup?.value;
-      const gender = form.querySelector('input[name="gender"]:checked')?.value;
-      if (!education || !ageGroup || !gender) {
-        msg.textContent = lang === "ar" ? "يرجى تعبئة جميع الحقول بشكل صحيح." : "Please complete the form correctly.";
-        msg.style.color = "#f87171";
-        return;
-      }
-      const data = {
-        fullName: form.fullName.value.trim(),
-        email: form.email.value.trim(),
-        country: form.country.value,
-        phone: `${form.phoneCode.value} ${form.phoneNumber.value.trim()}`,
-        education,
-        ageGroup,
-        gender,
+    const education = document.querySelector('input[name="education"]:checked')?.value;
+    if (!education) {
+      showMessage(currentLang === "ar" ? "يرجى اختيار أعلى مستوى تعليمي." : "Please select your highest level of education.", true);
+      return;
+    }
+
+    const ageGroup = form.ageGroup?.value;
+    if (!ageGroup) {
+      showMessage(currentLang === "ar" ? "يرجى اختيار الفئة العمرية." : "Please select your age group.", true);
+      return;
+    }
+
+    const gender = document.querySelector('input[name="gender"]:checked')?.value;
+    if (!gender) {
+      showMessage(currentLang === "ar" ? "يرجى اختيار الجنس." : "Please select your gender.", true);
+      return;
+    }
+
+    const phoneCode = form.phoneCode.value;
+    const phoneNumber = form.phoneNumber.value.trim();
+    if (!phoneCode || !phoneNumber) {
+      showMessage(currentLang === "ar" ? "يرجى إدخال رقم الهاتف مع رمز الدولة." : "Please enter your phone number and country code.", true);
+      return;
+    }
+
+    const data = {
+      fullName: form.fullName.value.trim(),
+      email: form.email.value.trim(),
+      country: form.country.value,
+      phone: `${phoneCode} ${phoneNumber}`,
+      education,
+      ageGroup,
+      gender,
+    };
+
+    const access_key = accessKeyInput?.value?.trim();
+    if (!access_key || access_key === "YOUR_WEB3FORMS_ACCESS_KEY") {
+      showMessage(currentLang === "ar" ? "يرجى ضبط مفتاح Web3Forms قبل الإرسال." : "Please configure your Web3Forms access key in the hidden field before submitting.", true);
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = currentLang === "ar" ? "يتم الإرسال..." : "Sending…";
+    showMessage("");
+
+    try {
+      const payload = {
+        access_key,
+        subject: `Website form submission: ${data.fullName}`,
+        name: data.fullName,
+        email: data.email,
+        message: `Country: ${data.country}\nPhone: ${data.phone}\nAge group: ${data.ageGroup}\nGender: ${data.gender}\nEducation: ${data.education}`,
+        phone: data.phone,
+        age_group: data.ageGroup,
+        gender: data.gender,
+        education: data.education,
+        to: "aladdin@engineer.com",
       };
-      const access_key = accessKeyInput?.value?.trim();
-      if (!access_key || access_key === "YOUR_WEB3FORMS_ACCESS_KEY") {
-        msg.textContent = lang === "ar" ? "يرجى ضبط مفتاح Web3Forms قبل الإرسال." : "Please configure your Web3Forms access key before submitting.";
-        msg.style.color = "#f87171";
-        return;
-      }
-      submitBtn.disabled = true;
-      submitBtn.textContent = lang === "ar" ? "يتم الإرسال..." : "Sending…";
-      msg.textContent = "";
-      try {
-        const payload = {
-          access_key,
-          subject: `Waitlist: ${data.fullName}`,
-          name: data.fullName,
-          email: data.email,
-          message: `Country: ${data.country}\nPhone: ${data.phone}\nAge group: ${data.ageGroup}\nGender: ${data.gender}\nEducation: ${data.education}`,
-          phone: data.phone,
-          age_group: data.ageGroup,
-          gender: data.gender,
-          to: "aladdin@engineer.com",
-        };
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        const json = await res.json();
-        if (res.ok && json.success) {
-          msg.textContent = lang === "ar" ? "تم الإرسال بنجاح." : "Thanks — your message was sent.";
-          msg.style.color = "#22c55e";
-          form.reset();
-          setTimeout(() => setOpen(false), 900);
-        } else {
-          msg.textContent = json.message || (lang === "ar" ? "فشل الإرسال." : "Failed to send message.");
-          msg.style.color = "#f87171";
-        }
-      } catch (err) {
-        msg.textContent = lang === "ar" ? "خطأ في الشبكة. حاول لاحقاً." : "Network error. Please try again later.";
-        msg.style.color = "#f87171";
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = lang === "ar" ? "إرسال" : "Submit";
-      }
-    });
-  }
-}
 
-document.addEventListener("DOMContentLoaded", setupWaitlistModal);
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const json = await res.json();
+      if (res.ok && json.success) {
+        showMessage(currentLang === "ar" ? "تم إرسال رسالتك بنجاح." : "Thanks — your message was sent.");
+        form.reset();
+        setTimeout(() => {
+          const modal = document.getElementById("modal");
+          if(modal) modal.setAttribute("aria-hidden", "true");
+        }, 900);
+      } else {
+        showMessage(json.message || (currentLang === "ar" ? "فشل في إرسال الرسالة." : "Failed to send message."), true);
+      }
+    } catch (err) {
+      showMessage(currentLang === "ar" ? "خطأ في الشبكة. حاول لاحقاً." : "Network error. Please try again later.", true);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = currentLang === "ar" ? "إرسال" : "Submit";
+    }
+  });
+}

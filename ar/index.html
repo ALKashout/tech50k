@@ -47,75 +47,7 @@
   </section>
 
   <!-- Waitlist Modal Popup -->
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" data-close>&times;</button>
-      <h2 class="form-title" data-en="Join the Waitlist" data-ar="انضم إلى قائمة الانتظار">انضم إلى قائمة الانتظار</h2>
-      <form id="contactForm" autocomplete="off">
-        <input type="hidden" id="access_key" name="access_key" value="0da79a34-e732-42ba-84af-06e813cef769" />
-        <div class="form-group">
-          <label for="fullName" data-en="Full Name" data-ar="الاسم الكامل">الاسم الكامل</label>
-          <input type="text" id="fullName" name="fullName" required maxlength="80" />
-        </div>
-        <div class="form-group">
-          <label for="email" data-en="Email" data-ar="البريد الإلكتروني">البريد الإلكتروني</label>
-          <input type="email" id="email" name="email" required maxlength="80" />
-        </div>
-        <div class="form-group">
-          <label for="country" data-en="Country" data-ar="الدولة">الدولة</label>
-          <select id="country" name="country" required></select>
-        </div>
-        <div class="form-group">
-          <label data-en="Phone Number" data-ar="رقم الهاتف">رقم الهاتف</label>
-          <div class="inline-group">
-            <select id="phoneCode" name="phoneCode" required style="max-width: 120px;"></select>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{6,15}" maxlength="15"
-              placeholder="123456789" style="flex:1;" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="ageGroup" data-en="Age Group" data-ar="الفئة العمرية">الفئة العمرية</label>
-          <select id="ageGroup" name="ageGroup" required>
-            <option value="">اختر</option>
-            <option value="under18" data-en="Under 18" data-ar="أقل من 18">أقل من 18</option>
-            <option value="18-24" data-en="18-24" data-ar="18-24">18-24</option>
-            <option value="25-34" data-en="25-34" data-ar="25-34">25-34</option>
-            <option value="35-44" data-en="35-44" data-ar="35-44">35-44</option>
-            <option value="45+" data-en="45+" data-ar="45+">45+</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label data-en="Gender" data-ar="الجنس">الجنس</label>
-          <div class="radio-group">
-            <label><input type="radio" name="gender" value="Male" required /> <span data-en="Male"
-                data-ar="ذكر">ذكر</span></label>
-            <label><input type="radio" name="gender" value="Female" required /> <span data-en="Female"
-                data-ar="أنثى">أنثى</span></label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label data-en="Highest Level of Education" data-ar="أعلى مستوى تعليمي">أعلى مستوى تعليمي</label>
-          <div class="radio-group">
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-              <label><input type="radio" name="education" value="High school or equivalent" required /><span
-                  style="margin-left:8px;" data-en="High school or equivalent" data-ar="الثانوية أو ما يعادلها">High
-                  school or equivalent</span></label>
-              <label><input type="radio" name="education" value="Bachelor's degree"" required /><span style="
-                  margin-left:8px;" data-en="Bachelor's degree"" data-ar=" بكالوريوس">Bachelor's degree</span></label>
-              <label><input type="radio" name="education" value="Master's degree" required /><span
-                  style="margin-left:8px;" data-en="Master's degree" data-ar="ماجستير">Master's degree</span></label>
-              <label><input type="radio" name="education" value="Doctorate" required /><span style="margin-left:8px;"
-                  data-en="Doctorate" data-ar="دكتوراه">Doctorate</span></label>
-              <label><input type="radio" name="education" value="Other" required /><span style="margin-left:8px;"
-                  data-en="Other" data-ar="أخرى">Other</span></label>
-            </div>
-          </div>
-        </div>
-        <div id="message"></div>
-        <button type="submit" id="submitBtn" class="cta" data-en="Submit" data-ar="إرسال">إرسال</button>
-      </form>
-    </div>
-  </div>
+  <div id="modal-placeholder"></div>
 
   </section>
 
@@ -331,8 +263,8 @@
       </div>
     </section>
 
+    <script src="../modal-loader.js"></script>
     <script src="../script.js"></script>
-    <script src="../form.js"></script>
     <script src="../form.js"></script>
     <footer class="footer" id="footer"></footer>
     <script src="../footer.js"></script>
