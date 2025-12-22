@@ -6,14 +6,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(15, 15, 15, 0.5);
   transition: opacity 0.3s;
 }
 .modal[aria-hidden="true"] {
   display: none;
 }
 .modal-content {
-  background: #1a2321;
+  background:#01352d;
   color: #b9a779;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
@@ -22,6 +22,11 @@
   width: 100%;
   position: relative;
   font-size: 1rem;
+  
+  max-height: 80vh;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color:#b9a779 #1a2321 ;
 }
 .modal-close {
   position: absolute;
@@ -36,7 +41,7 @@
 .form-title {
   font-size: 1.5rem;
   margin-bottom: 18px;
-  color: #dcb827;
+  color: #b9a779;
   text-align: center;
 }
 .form-group {
@@ -45,7 +50,7 @@
 label {
   display: block;
   margin-bottom: 6px;
-  color: #dcb827;
+  color: #beb08a;
   font-weight: 500;
 }
 input, select {
@@ -53,22 +58,42 @@ input, select {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #b9a779;
-  background: #002623;
-  color: #fff;
+  background: #e0e0e0;
+  color: #383838;
   font-size: 1rem;
 }
 input:focus, select:focus {
-  outline: 2px solid #dcb827;
+  outline: 2px solid #b9a779
 }
+
+/* ===== Radio & Checkbox Groups ===== */
 .radio-group, .inline-group {
   display: flex;
   gap: 16px;
-  align-items: center;
+  align-items: center; 
 }
-.radio-group label, .inline-group label {
+
+
+.radio-group input[type="radio"],
+.inline-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #dcb827; 
+  cursor: pointer;
+  margin: 0;
+}
+
+
+.radio-group label,
+.inline-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
   margin-bottom: 0;
   font-weight: 400;
+  cursor: pointer;
 }
+
 .flag {
   font-size: 1.2em;
   margin-right: 6px;
@@ -80,8 +105,8 @@ input:focus, select:focus {
 }
 #submitBtn {
   width: 100%;
-  background: #01352d;
-  color: #dcb827;
+  background: #07231f;
+  color: #b9a779;
   border: none;
   padding: 14px;
   border-radius: 8px;
@@ -100,7 +125,7 @@ input:focus, select:focus {
 .lang-toggle button {
   background: none;
   border: none;
-  color: #b9a779;
+  color: #010100;
   font-size: 1rem;
   cursor: pointer;
   margin-left: 8px;
@@ -108,4 +133,39 @@ input:focus, select:focus {
 [dir="rtl"] .modal-content {
   direction: rtl;
   text-align: right;
+}
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%;       /* ياخد أغلب عرض الشاشة */
+    padding: 24px;        /* تقليل الهوامش */
+    border-radius: 12px;  /* زوايا أنعم */
+    font-size: 0.95rem;   /* حجم خط أصغر قليلاً */
+  }
+
+  .form-title {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+
+  input, select {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  #submitBtn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  /* خيارات الراديو والـ checkbox */
+  .radio-group, .inline-group {
+    flex-direction: column;   /* يخلي الخيارات تحت بعض بدل جنب بعض */
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .lang-toggle {
+    text-align: center;   /* زر اللغة بالوسط */
+    margin-bottom: 12px;
+  }
 }

@@ -143,7 +143,6 @@ body {
   padding: 10px 18px;
   transform: translateY(-20px);
   border-radius: 999px;
-  /* شكل كبسولة */
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(220, 184, 39, 0.3);
@@ -170,7 +169,7 @@ body {
 .path-section {
   max-width: 100%;
   padding: 60px 20px; 
-  margin: 0 auto;
+  margin:  auto;
 }
 
 .path-title {
@@ -219,6 +218,7 @@ body {
   border: 2px solid #dcb827;
   border-radius: 50%;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 0 0 6px rgba(220, 184, 39, 0.15);
 }
 
 .dot:hover {
@@ -230,6 +230,21 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 32px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+
+.path-step:hover {
+   transform: scale(1.05); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+
+
+.card:active {
+  transform: scale(0.98); 
+  border-color: #fdfdfc;
+}
 }
 
 .path-step {
@@ -283,6 +298,9 @@ body {
   height: 250px;
   overflow: hidden;
   border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #0d3020;
 }
 
 /* ===== Front Side (Image) ===== */
@@ -294,21 +312,20 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Overlay on image */
+
 .card-front::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(1, 53, 45, 0.9); 
+  z-index: 1;
 }
 
-/* ===== Back Side (Content Overlay) ===== */
+/* ===== Content Overlay ===== */
 .card-back {
   position: absolute;
   inset: 0;
-
-  background: rgba(1, 53, 45, 0.95);
-  backdrop-filter: blur(4px);
+  z-index: 2;
 
   display: flex;
   flex-direction: column;
@@ -316,50 +333,33 @@ body {
   align-items: center;
   text-align: center;
 
-  transform: translateY(100%);
-  transition: transform 0.6s ease;
-}
-
-/* Hover effect */
-.card:hover .card-back {
-  transform: translateY(0);
-}
-
-/* ===== Text Animation (Optional but Important) ===== */
-.card-title,
-.card-desc {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: all 0.4s ease;
-}
-
-/* Staggered appearance */
-.card-title {
-  transition-delay: 0.15s;
-}
-
-.card-desc {
-  transition-delay: 0.3s;
-}
-
-/* On hover show text */
-.card:hover .card-title,
-.card:hover .card-desc {
-  opacity: 1;
-  transform: translateY(0);
+  padding: 20px;
+  background: transparent;
 }
 
 /* ===== Text Styles ===== */
 .card-title {
   font-size: 24px;
-  margin-bottom: 10px;
-  color: #b9a779;
+  margin-bottom: 16px;
+  color: #b9a779; 
 }
 
 .card-desc {
   font-size: 20px;
-  color: #b9a779;
+  color: #bdb7ab;
   max-width: 85%;
+  line-height: 1.6;
+}
+
+/* ===== Hover / Active Effects ===== */
+.card:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+
+.card:active {
+  transform: scale(0.98); 
+  border-color: #fdfdfc;
 }
 
 
