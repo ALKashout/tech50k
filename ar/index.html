@@ -1,242 +1,250 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <title>TECH50K</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../form.css" />
-    <link rel="stylesheet" href="../footer.css" />
-  </head>
 
-  <body class="rtl">
-    <!-- Header -->
-    <header class="navbar">
-      <div class="logo">
-        <a href="index.html" class="logo-link">
-          <img
-            src="../assets/images/logo.svg"
-            alt="TECH50K Logo"
-            class="logo-img"
-          />
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <title>TECH50K</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../form.css" />
+  <link rel="stylesheet" href="../footer.css" />
+</head>
+
+<body class="rtl">
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <img src="../assets/images/logo.svg" alt="TECH50K Logo" class="logo-img" />
+      </a>
+    </div>
+
+    <!-- Language switcher -->
+    <div class="lang-switcher">
+      <a href="../en/index.html" aria-label="English">EN</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge-wrapper">
+      <div class="hero-badge">
+        <span class="badge-new">انضم الآن</span>
+        <span class="badge-text"> المنصة التي تصنع الجيل الرقمي السوري </span>
       </div>
+    </div>
 
-      <!-- Language switcher -->
-      <div class="lang-switcher">
-        <a href="../en/index.html" aria-label="English">EN</a>
-      </div>
-    </header>
+    <h1>
+      مشروع وطني لتأهيل 50 ألف شاب وشابة سورية
+      <br />
+      بالمجالات التقنية
+    </h1>
+    <p>
+      كن صانعاََ للمستقبل الرقمي لا مجرد مستهلك له
+    </p>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-badge-wrapper">
-        <div class="hero-badge">
-          <span class="badge-new">انضم الآن</span>
-          <span class="badge-text"> المنصة التي تصنع الجيل الرقمي السوري </span>
+    <button class="cta"> انضم لقائمة الانتظار الآن </button>
+  </section>
+
+  <!-- Waitlist Modal Popup -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" data-close>&times;</button>
+      <h2 class="form-title" data-en="Join the Waitlist" data-ar="انضم إلى قائمة الانتظار">انضم إلى قائمة الانتظار</h2>
+      <form id="contactForm" autocomplete="off">
+        <input type="hidden" id="access_key" name="access_key" value="0da79a34-e732-42ba-84af-06e813cef769" />
+        <div class="form-group">
+          <label for="fullName" data-en="Full Name" data-ar="الاسم الكامل">الاسم الكامل</label>
+          <input type="text" id="fullName" name="fullName" required maxlength="80" />
         </div>
-      </div>
-
-      <h1>
-        مشروع وطني لتأهيل  50 ألف شاب وشابة سورية
-        <br />
-        بالمجالات التقنية
-      </h1>
-      <p>
-    كن صانعاََ للمستقبل الرقمي لا مجرد مستهلك له
-      </p>
-  
-       <button class="cta"> انضم لقائمة الانتظار الآن </button>
-        </section>
-
-    <!-- Waitlist Modal Popup -->
-    <div class="modal" id="modal" aria-hidden="true">
-      <div class="modal-content">
-        <button class="modal-close" data-close>&times;</button>
-        <h2 class="form-title" data-en="Join the Waitlist" data-ar="انضم إلى قائمة الانتظار">انضم إلى قائمة الانتظار</h2>
-        <form id="contactForm" autocomplete="off">
-          <input type="hidden" id="access_key" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-          <div class="form-group">
-            <label for="fullName" data-en="Full Name" data-ar="الاسم الكامل">الاسم الكامل</label>
-            <input type="text" id="fullName" name="fullName" required maxlength="80" />
+        <div class="form-group">
+          <label for="email" data-en="Email" data-ar="البريد الإلكتروني">البريد الإلكتروني</label>
+          <input type="email" id="email" name="email" required maxlength="80" />
+        </div>
+        <div class="form-group">
+          <label for="country" data-en="Country" data-ar="الدولة">الدولة</label>
+          <select id="country" name="country" required></select>
+        </div>
+        <div class="form-group">
+          <label data-en="Phone Number" data-ar="رقم الهاتف">رقم الهاتف</label>
+          <div class="inline-group">
+            <select id="phoneCode" name="phoneCode" required style="max-width: 120px;"></select>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{6,15}" maxlength="15"
+              placeholder="123456789" style="flex:1;" />
           </div>
-          <div class="form-group">
-            <label for="email" data-en="Email" data-ar="البريد الإلكتروني">البريد الإلكتروني</label>
-            <input type="email" id="email" name="email" required maxlength="80" />
+        </div>
+        <div class="form-group">
+          <label for="ageGroup" data-en="Age Group" data-ar="الفئة العمرية">الفئة العمرية</label>
+          <select id="ageGroup" name="ageGroup" required>
+            <option value="">اختر</option>
+            <option value="under18" data-en="Under 18" data-ar="أقل من 18">أقل من 18</option>
+            <option value="18-24" data-en="18-24" data-ar="18-24">18-24</option>
+            <option value="25-34" data-en="25-34" data-ar="25-34">25-34</option>
+            <option value="35-44" data-en="35-44" data-ar="35-44">35-44</option>
+            <option value="45+" data-en="45+" data-ar="45+">45+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-en="Gender" data-ar="الجنس">الجنس</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gender" value="Male" required /> <span data-en="Male"
+                data-ar="ذكر">ذكر</span></label>
+            <label><input type="radio" name="gender" value="Female" required /> <span data-en="Female"
+                data-ar="أنثى">أنثى</span></label>
           </div>
-          <div class="form-group">
-            <label for="country" data-en="Country" data-ar="الدولة">الدولة</label>
-            <select id="country" name="country" required></select>
-          </div>
-          <div class="form-group">
-            <label data-en="Phone Number" data-ar="رقم الهاتف">رقم الهاتف</label>
-            <div class="inline-group">
-              <select id="phoneCode" name="phoneCode" required style="max-width: 120px;"></select>
-              <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{6,15}" maxlength="15" placeholder="123456789" style="flex:1;" />
+        </div>
+        <div class="form-group">
+          <label data-en="Highest Level of Education" data-ar="أعلى مستوى تعليمي">أعلى مستوى تعليمي</label>
+          <div class="radio-group">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label><input type="radio" name="education" value="High school or equivalent" required /><span
+                  style="margin-left:8px;" data-en="High school or equivalent" data-ar="الثانوية أو ما يعادلها">High
+                  school or equivalent</span></label>
+              <label><input type="radio" name="education" value="Bachelor's degree"" required /><span style="
+                  margin-left:8px;" data-en="Bachelor's degree"" data-ar=" بكالوريوس">Bachelor's degree</span></label>
+              <label><input type="radio" name="education" value="Master's degree" required /><span
+                  style="margin-left:8px;" data-en="Master's degree" data-ar="ماجستير">Master's degree</span></label>
+              <label><input type="radio" name="education" value="Doctorate" required /><span style="margin-left:8px;"
+                  data-en="Doctorate" data-ar="دكتوراه">Doctorate</span></label>
+              <label><input type="radio" name="education" value="Other" required /><span style="margin-left:8px;"
+                  data-en="Other" data-ar="أخرى">Other</span></label>
             </div>
           </div>
-          <div class="form-group">
-            <label for="ageGroup" data-en="Age Group" data-ar="الفئة العمرية">الفئة العمرية</label>
-            <select id="ageGroup" name="ageGroup" required>
-              <option value="">اختر</option>
-              <option value="under18" data-en="Under 18" data-ar="أقل من 18">أقل من 18</option>
-              <option value="18-24" data-en="18-24" data-ar="18-24">18-24</option>
-              <option value="25-34" data-en="25-34" data-ar="25-34">25-34</option>
-              <option value="35-44" data-en="35-44" data-ar="35-44">35-44</option>
-              <option value="45+" data-en="45+" data-ar="45+">45+</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label data-en="Gender" data-ar="الجنس">الجنس</label>
-            <div class="radio-group">
-              <label><input type="radio" name="gender" value="Male" required /> <span data-en="Male" data-ar="ذكر">ذكر</span></label>
-              <label><input type="radio" name="gender" value="Female" required /> <span data-en="Female" data-ar="أنثى">أنثى</span></label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label data-en="Highest Level of Education" data-ar="أعلى مستوى تعليمي">أعلى مستوى تعليمي</label>
-            <div class="radio-group">
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label><input type="radio" name="education" value="High School" required /><span style="margin-right:8px;" data-en="High School" data-ar="ثانوي">ثانوي</span></label>
-                <label><input type="radio" name="education" value="Diploma" required /><span style="margin-right:8px;" data-en="Diploma" data-ar="دبلوم">دبلوم</span></label>
-                <label><input type="radio" name="education" value="Bachelor" required /><span style="margin-right:8px;" data-en="Bachelor" data-ar="بكالوريوس">بكالوريوس</span></label>
-                <label><input type="radio" name="education" value="Master" required /><span style="margin-right:8px;" data-en="Master" data-ar="ماجستير">ماجستير</span></label>
-                <label><input type="radio" name="education" value="PhD" required /><span style="margin-right:8px;" data-en="PhD" data-ar="دكتوراه">دكتوراه</span></label>
-              </div>
-            </div>
-          </div>
-          <div id="message"></div>
-          <button type="submit" id="submitBtn" class="cta" data-en="Submit" data-ar="إرسال">إرسال</button>
-        </form>
-      </div>
-    </div>
-
-    </section>
-     
-
-<!-- Strategic Pillars -->
-<section class="pillars">
-  <h2 class="pillars-title">أهدافنا الاستراتيجية</h2>
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/50,000 Youth Empowered.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">تأهيل 50,000 شاب وشابة</h3>
-          <p class="card-desc">
-            تمكين الشباب السوري بالمهارات الرقمية اللازمة للنجاح في سوق العمل.
-          </p>
         </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-       <div class="card-front" style="background-image:url('../assets/images/National Digital Skills Base.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">بناء قاعدة وطنية رقمية</h3>
-          <p class="card-desc">
-            تطوير المهارات الرقمية من الأساسيات حتى المستويات المتقدمة.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/Women Digital Empowerment.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">تمكين المرأة رقمياً</h3>
-          <p class="card-desc">
-            دعم مشاركة المرأة في مجالات التقنية والتوظيف الرقمي.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/Digital Employment.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">تعزيز فرص العمل الرقمية</h3>
-          <p class="card-desc">
-            رفع جاهزية الشباب للعمل عن بُعد وريادة الأعمال التقنية.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-         <div class="card-front" style="background-image:url('../assets/images/Sustainable Digital Learning.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">منظومة تعلم رقمي مستدامة</h3>
-          <p class="card-desc">
-            منصة تعليمية وطنية باللغتين العربية والإنجليزية قابلة للتوسع.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/Knowledge-Based Economy.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">دعم الاقتصاد المعرفي</h3>
-          <p class="card-desc">
-            توظيف الحلول التقنية لخدمة قطاعات حيوية كالصحة والتعليم.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-<section class="path-section">
-  <h2 class="path-title">مسار التعلم</h2>
-
-<div class="path-track">
-
-  <div class="path-dots">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-
-  <div class="path-steps">
-    <div class="path-step">
-      <h3>المستوى التأسيسي</h3>
-      <p>المهارات الرقمية الأساسية وبناء الجاهزية الأولية</p>
-    </div>
-
-    <div class="path-step">
-      <h3>التمهيدي التقني</h3>
-      <p>مبادئ البرمجة، الشبكات، الأمن والذكاء الاصطناعي</p>
-    </div>
-
-    <div class="path-step">
-      <h3>التطبيقي</h3>
-      <p>مهارات عملية ومشاريع صغيرة في المسار المختار</p>
-    </div>
-
-    <div class="path-step">
-      <h3>المتقدم</h3>
-      <p>حلول متكاملة وإدارة مشاريع والاستعداد لسوق العمل</p>
-    </div>
-
-    <div class="path-step">
-      <h3>الاحترافي</h3>
-      <p>تخصص دقيق، مشروع تخرج، وقيادة فرق تقنية</p>
+        <div id="message"></div>
+        <button type="submit" id="submitBtn" class="cta" data-en="Submit" data-ar="إرسال">إرسال</button>
+      </form>
     </div>
   </div>
 
-</div>
+  </section>
+
+
+  <!-- Strategic Pillars -->
+  <section class="pillars">
+    <h2 class="pillars-title">أهدافنا الاستراتيجية</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/50,000 Youth Empowered.jpg');"></div>
+          <div class="card-back">
+            <h3 class="card-title">تأهيل 50,000 شاب وشابة</h3>
+            <p class="card-desc">
+              تمكين الشباب السوري بالمهارات الرقمية اللازمة للنجاح في سوق العمل.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/National Digital Skills Base.jpg');">
+          </div>
+          <div class="card-back">
+            <h3 class="card-title">بناء قاعدة وطنية رقمية</h3>
+            <p class="card-desc">
+              تطوير المهارات الرقمية من الأساسيات حتى المستويات المتقدمة.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/Women Digital Empowerment.jpg');"></div>
+          <div class="card-back">
+            <h3 class="card-title">تمكين المرأة رقمياً</h3>
+            <p class="card-desc">
+              دعم مشاركة المرأة في مجالات التقنية والتوظيف الرقمي.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/Digital Employment.jpg');"></div>
+          <div class="card-back">
+            <h3 class="card-title">تعزيز فرص العمل الرقمية</h3>
+            <p class="card-desc">
+              رفع جاهزية الشباب للعمل عن بُعد وريادة الأعمال التقنية.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/Sustainable Digital Learning.jpg');">
+          </div>
+          <div class="card-back">
+            <h3 class="card-title">منظومة تعلم رقمي مستدامة</h3>
+            <p class="card-desc">
+              منصة تعليمية وطنية باللغتين العربية والإنجليزية قابلة للتوسع.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/Knowledge-Based Economy.jpg');"></div>
+          <div class="card-back">
+            <h3 class="card-title">دعم الاقتصاد المعرفي</h3>
+            <p class="card-desc">
+              توظيف الحلول التقنية لخدمة قطاعات حيوية كالصحة والتعليم.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <section class="path-section">
+    <h2 class="path-title">مسار التعلم</h2>
+
+    <div class="path-track">
+
+      <div class="path-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <div class="path-steps">
+        <div class="path-step">
+          <h3>المستوى التأسيسي</h3>
+          <p>المهارات الرقمية الأساسية وبناء الجاهزية الأولية</p>
+        </div>
+
+        <div class="path-step">
+          <h3>التمهيدي التقني</h3>
+          <p>مبادئ البرمجة، الشبكات، الأمن والذكاء الاصطناعي</p>
+        </div>
+
+        <div class="path-step">
+          <h3>التطبيقي</h3>
+          <p>مهارات عملية ومشاريع صغيرة في المسار المختار</p>
+        </div>
+
+        <div class="path-step">
+          <h3>المتقدم</h3>
+          <p>حلول متكاملة وإدارة مشاريع والاستعداد لسوق العمل</p>
+        </div>
+
+        <div class="path-step">
+          <h3>الاحترافي</h3>
+          <p>تخصص دقيق، مشروع تخرج، وقيادة فرق تقنية</p>
+        </div>
+      </div>
+
+    </div>
 
 
     <!-- FAQ -->
@@ -250,7 +258,9 @@
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
-           <p> يجب أن يكون المتقدم مواطناً سورياً ومقيماً داخل الأراضي السورية وقت التقديم. أما من حيث العمر، فالفئة المستهدفة هي ما بين (16–40) عاماً، مع إمكانية وجود استثناءات بسيطة. تعليمياً، يُشترط إنهاء المرحلة الإعدادية أو الثانوية على الأقل لضمان القدرة على متابعة المحتوى.</p>
+            <p> يجب أن يكون المتقدم مواطناً سورياً ومقيماً داخل الأراضي السورية وقت التقديم. أما من حيث العمر، فالفئة
+              المستهدفة هي ما بين (16–40) عاماً، مع إمكانية وجود استثناءات بسيطة. تعليمياً، يُشترط إنهاء المرحلة
+              الإعدادية أو الثانوية على الأقل لضمان القدرة على متابعة المحتوى.</p>
           </div>
         </div>
 
@@ -261,7 +271,9 @@
           </button>
           <div class="faq-answer">
             <p>نعم، توفر المبادرة وصولاً مجانياً إلى جميع المواد التعليمية.</p>
-            <p>نعم، بالتأكيد. تتبع المبادرة مبدأ "ترابط المعايير مع مستوى المسار". وهذا يعني أن المستوى 0 (التأسيس الرقمي) مصمم خصيصاً لمن لا يملكون خلفية رقمية أو لديهم معرفة محدودة جداً. المبادرة تهدف للبدء من مستوى الثقافة الرقمية لا من افتراض معرفة مسبقة.</p>
+            <p>نعم، بالتأكيد. تتبع المبادرة مبدأ "ترابط المعايير مع مستوى المسار". وهذا يعني أن المستوى 0 (التأسيس
+              الرقمي) مصمم خصيصاً لمن لا يملكون خلفية رقمية أو لديهم معرفة محدودة جداً. المبادرة تهدف للبدء من مستوى
+              الثقافة الرقمية لا من افتراض معرفة مسبقة.</p>
           </div>
         </div>
 
@@ -271,7 +283,9 @@
             <span class="icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>بالنسبة للمسارات المتقدمة (مثل الذكاء الاصطناعي أو الأمن السيبراني)، يُشترط امتلاك قدرة كافية على القراءة والفهم للتعامل مع المصطلحات التقنية بالإنجليزية. أما المسارات التأسيسية، فالتركيز يكون على بناء المهارات الرقمية الأساسية.</p>
+            <p>بالنسبة للمسارات المتقدمة (مثل الذكاء الاصطناعي أو الأمن السيبراني)، يُشترط امتلاك قدرة كافية على القراءة
+              والفهم للتعامل مع المصطلحات التقنية بالإنجليزية. أما المسارات التأسيسية، فالتركيز يكون على بناء المهارات
+              الرقمية الأساسية.</p>
           </div>
         </div>
       </div>
@@ -282,7 +296,9 @@
           <span class="icon">+</span>
         </button>
         <div class="faq-answer">
-        <p>عند تجاوز الطاقة الاستيعابية، تُطبق معايير المفاضلة. يتم التقييم بناءً على درجة الدافعية والاستعداد الموضحة في استمارة التقديم، ويتم منح أولوية نسبية للفئات الأكثر تضرراً اقتصادياً، ولأبناء الشهداء، وللمقيمين في المناطق الأقل حظاً تعليمياً.</p>
+          <p>عند تجاوز الطاقة الاستيعابية، تُطبق معايير المفاضلة. يتم التقييم بناءً على درجة الدافعية والاستعداد الموضحة
+            في استمارة التقديم، ويتم منح أولوية نسبية للفئات الأكثر تضرراً اقتصادياً، ولأبناء الشهداء، وللمقيمين في
+            المناطق الأقل حظاً تعليمياً.</p>
           <p></p>
         </div>
       </div>
@@ -294,7 +310,9 @@
         </button>
         <div class="faq-answer">
           <p>
-   النجاح في المبادرة يتطلب الالتزام بحضور نسبة محددة من الجلسات التفاعلية، وإنجاز المهام والمشاريع العملية في مواعيدها [15، 17]. كما يجب على المشارك الخضوع للتقييمات الدورية التي تقيس مستوى تقدمه، والالتزام بقواعد السلوك المهني.
+            النجاح في المبادرة يتطلب الالتزام بحضور نسبة محددة من الجلسات التفاعلية، وإنجاز المهام والمشاريع العملية في
+            مواعيدها [15، 17]. كما يجب على المشارك الخضوع للتقييمات الدورية التي تقيس مستوى تقدمه، والالتزام بقواعد
+            السلوك المهني.
           </p>
         </div>
       </div>
@@ -306,7 +324,8 @@
         </button>
         <div class="faq-answer">
           <p>
- نعم، للانتقال إلى المستويات الأعلى (مثل المستوى التمهيدي أو الاحترافي)، يجب على المتدرب اجتياز المستوى السابق بنجاح، أو تقديم ما يثبت امتلاكه لمهارات مكافئة (مثل مشروع سابق أو خبرة عملية موثقة).
+            نعم، للانتقال إلى المستويات الأعلى (مثل المستوى التمهيدي أو الاحترافي)، يجب على المتدرب اجتياز المستوى
+            السابق بنجاح، أو تقديم ما يثبت امتلاكه لمهارات مكافئة (مثل مشروع سابق أو خبرة عملية موثقة).
           </p>
         </div>
       </div>
@@ -318,24 +337,25 @@
     <footer class="footer" id="footer"></footer>
     <script src="../footer.js"></script>
     <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const steps = document.querySelectorAll(".path-step");
+      document.addEventListener("DOMContentLoaded", () => {
+        const steps = document.querySelectorAll(".path-step");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
 
-    steps.forEach((step) => observer.observe(step));
-  });
-</script>
+        steps.forEach((step) => observer.observe(step));
+      });
+    </script>
 </body>
 
-  </body>
+</body>
+
 </html>

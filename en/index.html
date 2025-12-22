@@ -6,7 +6,7 @@
   <title>TECH50K</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../form.css" />
+  <link rel="stylesheet" href="../form.css" />
   <link rel="stylesheet" href="../footer.css" />
 </head>
 
@@ -26,291 +26,314 @@
   </header>
 
   <!-- Hero -->
-<section class="hero">
-  <div class="hero-badge-wrapper">
-    <div class="hero-badge">
-      <span class="badge-new">Join Now</span>
-      <span class="badge-text">The platform shaping the Syrian digital generation</span>
+  <section class="hero">
+    <div class="hero-badge-wrapper">
+      <div class="hero-badge">
+        <span class="badge-new">Join Now</span>
+        <span class="badge-text">The platform shaping the Syrian digital generation</span>
+      </div>
+    </div>
+
+    <h1>
+      A National Project to Qualify 50,000 Syrian Youth
+      <br />
+      in the Tech Fields
+    </h1>
+    <p>
+      Be a creator of the digital future, not just a consumer
+    </p>
+
+    <button class="cta">Join the Waitlist Now</button>
+  </section>
+
+  <!-- Waitlist Modal Popup -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" data-close>&times;</button>
+      <h2 class="form-title" data-en="Join the Waitlist" data-ar="انضم إلى قائمة الانتظار">Join the Waitlist</h2>
+      <form id="contactForm" autocomplete="off">
+        <input type="hidden" id="access_key" name="access_key" value="0da79a34-e732-42ba-84af-06e813cef769" />
+        <div class="form-group">
+          <label for="fullName" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+          <input type="text" id="fullName" name="fullName" required maxlength="80" />
+        </div>
+        <div class="form-group">
+          <label for="email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+          <input type="email" id="email" name="email" required maxlength="80" />
+        </div>
+        <div class="form-group">
+          <label for="country" data-en="Country" data-ar="الدولة">Country</label>
+          <select id="country" name="country" required></select>
+        </div>
+        <div class="form-group">
+          <label data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
+          <div class="inline-group">
+            <select id="phoneCode" name="phoneCode" required style="max-width: 120px;"></select>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{6,15}" maxlength="15"
+              placeholder="123456789" style="flex:1;" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ageGroup" data-en="Age Group" data-ar="الفئة العمرية">Age Group</label>
+          <select id="ageGroup" name="ageGroup" required>
+            <option value="">Select</option>
+            <option value="under18" data-en="Under 18" data-ar="أقل من 18">Under 18</option>
+            <option value="18-24" data-en="18-24" data-ar="18-24">18-24</option>
+            <option value="25-34" data-en="25-34" data-ar="25-34">25-34</option>
+            <option value="35-44" data-en="35-44" data-ar="35-44">35-44</option>
+            <option value="45+" data-en="45+" data-ar="45+">45+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-en="Gender" data-ar="الجنس">Gender</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gender" value="Male" required /> <span data-en="Male"
+                data-ar="ذكر">Male</span></label>
+            <label><input type="radio" name="gender" value="Female" required /> <span data-en="Female"
+                data-ar="أنثى">Female</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-en="Highest Level of Education" data-ar="أعلى مستوى تعليمي">Highest Level of Education</label>
+          <div class="radio-group">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label><input type="radio" name="education" value="High school or equivalent" required /><span
+                  style="margin-left:8px;" data-en="High school or equivalent" data-ar="الثانوية أو ما يعادلها">High
+                  school or equivalent</span></label>
+              <label><input type="radio" name="education" value="Bachelor's degree"" required /><span style="
+                  margin-left:8px;" data-en="Bachelor's degree"" data-ar=" بكالوريوس">Bachelor's degree</span></label>
+              <label><input type="radio" name="education" value="Master's degree" required /><span
+                  style="margin-left:8px;" data-en="Master's degree" data-ar="ماجستير">Master's degree</span></label>
+              <label><input type="radio" name="education" value="Doctorate" required /><span style="margin-left:8px;"
+                  data-en="Doctorate" data-ar="دكتوراه">Doctorate</span></label>
+              <label><input type="radio" name="education" value="Other" required /><span style="margin-left:8px;"
+                  data-en="Other" data-ar="أخرى">Other</span></label>
+            </div>
+          </div>
+        </div>
+        <div id="message"></div>
+        <button type="submit" id="submitBtn" class="cta" data-en="Submit" data-ar="إرسال">Submit</button>
+      </form>
     </div>
   </div>
 
-  <h1>
-    A National Project to Qualify 50,000 Syrian Youth
-    <br />
-    in the Tech Fields
-  </h1>
-  <p>
-    Be a creator of the digital future, not just a consumer
-  </p>
+  </section>
 
-  <button class="cta">Join the Waitlist Now</button>
-</section>
 
-<!-- Waitlist Modal Popup -->
-<div class="modal" id="modal" aria-hidden="true">
-  <div class="modal-content">
-    <button class="modal-close" data-close>&times;</button>
-    <h2 class="form-title" data-en="Join the Waitlist" data-ar="انضم إلى قائمة الانتظار">Join the Waitlist</h2>
-    <form id="contactForm" autocomplete="off">
-      <input type="hidden" id="access_key" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-      <div class="form-group">
-        <label for="fullName" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
-        <input type="text" id="fullName" name="fullName" required maxlength="80" />
-      </div>
-      <div class="form-group">
-        <label for="email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
-        <input type="email" id="email" name="email" required maxlength="80" />
-      </div>
-      <div class="form-group">
-        <label for="country" data-en="Country" data-ar="الدولة">Country</label>
-        <select id="country" name="country" required></select>
-      </div>
-      <div class="form-group">
-        <label data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
-        <div class="inline-group">
-          <select id="phoneCode" name="phoneCode" required style="max-width: 120px;"></select>
-          <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{6,15}" maxlength="15" placeholder="123456789" style="flex:1;" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="ageGroup" data-en="Age Group" data-ar="الفئة العمرية">Age Group</label>
-        <select id="ageGroup" name="ageGroup" required>
-          <option value="">Select</option>
-          <option value="under18" data-en="Under 18" data-ar="أقل من 18">Under 18</option>
-          <option value="18-24" data-en="18-24" data-ar="18-24">18-24</option>
-          <option value="25-34" data-en="25-34" data-ar="25-34">25-34</option>
-          <option value="35-44" data-en="35-44" data-ar="35-44">35-44</option>
-          <option value="45+" data-en="45+" data-ar="45+">45+</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label data-en="Gender" data-ar="الجنس">Gender</label>
-        <div class="radio-group">
-          <label><input type="radio" name="gender" value="Male" required /> <span data-en="Male" data-ar="ذكر">Male</span></label>
-          <label><input type="radio" name="gender" value="Female" required /> <span data-en="Female" data-ar="أنثى">Female</span></label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label data-en="Highest Level of Education" data-ar="أعلى مستوى تعليمي">Highest Level of Education</label>
-        <div class="radio-group">
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <label><input type="radio" name="education" value="High School" required /><span style="margin-left:8px;" data-en="High School" data-ar="ثانوي">High School</span></label>
-            <label><input type="radio" name="education" value="Diploma" required /><span style="margin-left:8px;" data-en="Diploma" data-ar="دبلوم">Diploma</span></label>
-            <label><input type="radio" name="education" value="Bachelor" required /><span style="margin-left:8px;" data-en="Bachelor" data-ar="بكالوريوس">Bachelor</span></label>
-            <label><input type="radio" name="education" value="Master" required /><span style="margin-left:8px;" data-en="Master" data-ar="ماجستير">Master</span></label>
-            <label><input type="radio" name="education" value="PhD" required /><span style="margin-left:8px;" data-en="PhD" data-ar="دكتوراه">PhD</span></label>
+
+
+  <!-- Strategic Pillars -->
+  <section class="pillars">
+    <h2 class="pillars-title">Our Strategic Goals</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/50,000 Youth Empowered.jpg');"></div>
+          <div class="card-back">
+            <h3 class="card-title">50,000 Youth Empowered</h3>
+            <p class="card-desc">
+              Equipping Syrian youth with essential digital skills.
+            </p>
           </div>
         </div>
       </div>
-      <div id="message"></div>
-      <button type="submit" id="submitBtn" class="cta" data-en="Submit" data-ar="إرسال">Submit</button>
-    </form>
-  </div>
-</div>
 
-</section>
-
-
-
-
-<!-- Strategic Pillars -->
-<section class="pillars">
-  <h2 class="pillars-title">Our Strategic Goals</h2>
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/50,000 Youth Empowered.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">50,000 Youth Empowered</h3>
-          <p class="card-desc">
-            Equipping Syrian youth with essential digital skills.
-          </p>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/National Digital Skills Base.jpg');">
+          </div>
+          <div class="card-back">
+            <h3 class="card-title">National Digital Skills Base</h3>
+            <p class="card-desc">
+              From basic literacy to advanced tech skills.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/National Digital Skills Base.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">National Digital Skills Base</h3>
-          <p class="card-desc">
-            From basic literacy to advanced tech skills.
-          </p>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/Women Digital Empowerment.jpg');"></div>
+          <div class="card-back">
+            <h3 class="card-title">Women Digital Empowerment</h3>
+            <p class="card-desc">
+              Supporting women in tech and digital careers.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/Women Digital Empowerment.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">Women Digital Empowerment</h3>
-          <p class="card-desc">
-            Supporting women in tech and digital careers.
-          </p>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/Digital Employment.jpg');"></div>
+          <div class="card-back">
+            <h3 class="card-title">Digital Employment</h3>
+            <p class="card-desc">
+              Preparing youth for remote work and startups.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/Digital Employment.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">Digital Employment</h3>
-          <p class="card-desc">
-            Preparing youth for remote work and startups.
-          </p>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/Sustainable Digital Learning.jpg');">
+          </div>
+          <div class="card-back">
+            <h3 class="card-title">Sustainable Digital Learning</h3>
+            <p class="card-desc">
+              A scalable national learning platform.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/Sustainable Digital Learning.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">Sustainable Digital Learning</h3>
-          <p class="card-desc">
-            A scalable national learning platform.
-          </p>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image:url('../assets/images/Knowledge-Based Economy.jpg');"></div>
+          <div class="card-back">
+            <h3 class="card-title">Knowledge-Based Economy</h3>
+            <p class="card-desc">
+              Tech solutions for key public sectors.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front" style="background-image:url('../assets/images/Knowledge-Based Economy.jpg');"></div>
-        <div class="card-back">
-          <h3 class="card-title">Knowledge-Based Economy</h3>
-          <p class="card-desc">
-            Tech solutions for key public sectors.
-          </p>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="path-section">
+    <h2 class="path-title">Learning Path</h2>
+
+    <div class="path-track">
+
+      <div class="path-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <div class="path-steps">
+        <div class="path-step">
+          <h3>Foundational Level</h3>
+          <p>Basic digital skills and building initial readiness</p>
+        </div>
+
+        <div class="path-step">
+          <h3>Technical Preparatory Level</h3>
+          <p>Fundamentals of programming, networks, security, and artificial intelligence</p>
+        </div>
+
+        <div class="path-step">
+          <h3>Applied Level</h3>
+          <p>Practical skills and small projects within the chosen track</p>
+        </div>
+
+        <div class="path-step">
+          <h3>Advanced Level</h3>
+          <p>Integrated solutions, project management, and job market readiness</p>
+        </div>
+
+        <div class="path-step">
+          <h3>Professional Level</h3>
+          <p>In-depth specialization, graduation project, and leading technical teams</p>
         </div>
       </div>
+
     </div>
-
-  </div>
-</section>
-
-
-
-
-
-<section class="path-section">
-  <h2 class="path-title">Learning Path</h2>
-
-  <div class="path-track">
-
-    <div class="path-dots">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-
-    <div class="path-steps">
-      <div class="path-step">
-        <h3>Foundational Level</h3>
-        <p>Basic digital skills and building initial readiness</p>
-      </div>
-
-      <div class="path-step">
-        <h3>Technical Preparatory Level</h3>
-        <p>Fundamentals of programming, networks, security, and artificial intelligence</p>
-      </div>
-
-      <div class="path-step">
-        <h3>Applied Level</h3>
-        <p>Practical skills and small projects within the chosen track</p>
-      </div>
-
-      <div class="path-step">
-        <h3>Advanced Level</h3>
-        <p>Integrated solutions, project management, and job market readiness</p>
-      </div>
-
-      <div class="path-step">
-        <h3>Professional Level</h3>
-        <p>In-depth specialization, graduation project, and leading technical teams</p>
-      </div>
-    </div>
-
-  </div>
-</section>
+  </section>
 
 
   <!-- FAQ -->
-<section class="faq">
-  <h2>Frequently Asked Questions</h2>
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
 
-  <div class="faq-grid">
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>What are the basic requirements for applicants?</span>
-        <span class="icon">+</span>
-      </button>
-      <div class="faq-answer">
-        <p>Applicants must be Syrian citizens residing in Syria at the time of application. Regarding age, the target group is between 16–40 years old, with some exceptions possible. Educationally, completing at least middle or high school is required to ensure the ability to follow the content.</p>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What are the basic requirements for applicants?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Applicants must be Syrian citizens residing in Syria at the time of application. Regarding age, the target
+            group is between 16–40 years old, with some exceptions possible. Educationally, completing at least middle
+            or high school is required to ensure the ability to follow the content.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>I have no previous programming experience. Can I apply?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, the initiative provides free access to all educational materials.</p>
+          <p>Absolutely. The initiative follows the principle of "aligning standards with track level." This means Level
+            0 (Digital Foundations) is designed specifically for those with no digital background or very limited
+            knowledge. The initiative aims to start from digital literacy, not assuming prior knowledge.</p>
+        </div>
+      </div>
+
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Does the initiative require proficiency in English?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>For advanced tracks (such as Artificial Intelligence or Cybersecurity), sufficient reading and
+            comprehension skills are required to handle technical English terms. For foundational tracks, the focus is
+            on building basic digital skills.</p>
+        </div>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question">
-        <span>I have no previous programming experience. Can I apply?</span>
+        <span>How are applicants selected if the number of applicants is very high?</span>
         <span class="icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Yes, the initiative provides free access to all educational materials.</p>
-        <p>Absolutely. The initiative follows the principle of "aligning standards with track level." This means Level 0 (Digital Foundations) is designed specifically for those with no digital background or very limited knowledge. The initiative aims to start from digital literacy, not assuming prior knowledge.</p>
+        <p>When capacity is exceeded, selection criteria are applied. Evaluation is based on motivation and readiness as
+          indicated in the application form, with relative priority given to economically disadvantaged groups, children
+          of martyrs, and residents of areas with lower educational opportunities.</p>
       </div>
     </div>
-
 
     <div class="faq-item">
       <button class="faq-question">
-        <span>Does the initiative require proficiency in English?</span>
+        <span>What are the requirements to obtain the certificate?</span>
         <span class="icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>For advanced tracks (such as Artificial Intelligence or Cybersecurity), sufficient reading and comprehension skills are required to handle technical English terms. For foundational tracks, the focus is on building basic digital skills.</p>
+        <p>Success in the initiative requires attending a specified percentage of interactive sessions, completing tasks
+          and practical projects on time. Participants must also undergo periodic assessments to measure their progress
+          and adhere to professional conduct rules.</p>
       </div>
     </div>
-  </div>
 
-  <div class="faq-item">
-    <button class="faq-question">
-      <span>How are applicants selected if the number of applicants is very high?</span>
-      <span class="icon">+</span>
-    </button>
-    <div class="faq-answer">
-      <p>When capacity is exceeded, selection criteria are applied. Evaluation is based on motivation and readiness as indicated in the application form, with relative priority given to economically disadvantaged groups, children of martyrs, and residents of areas with lower educational opportunities.</p>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Are there special requirements to move from one level to another?</span>
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes, to move to higher levels (such as preparatory or professional levels), trainees must successfully
+          complete the previous level or provide proof of equivalent skills (e.g., a previous project or documented work
+          experience).</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="faq-item">
-    <button class="faq-question">
-      <span>What are the requirements to obtain the certificate?</span>
-      <span class="icon">+</span>
-    </button>
-    <div class="faq-answer">
-      <p>Success in the initiative requires attending a specified percentage of interactive sessions, completing tasks and practical projects on time. Participants must also undergo periodic assessments to measure their progress and adhere to professional conduct rules.</p>
-    </div>
-  </div>
 
-  <div class="faq-item">
-    <button class="faq-question">
-      <span>Are there special requirements to move from one level to another?</span>
-      <span class="icon">+</span>
-    </button>
-    <div class="faq-answer">
-      <p>Yes, to move to higher levels (such as preparatory or professional levels), trainees must successfully complete the previous level or provide proof of equivalent skills (e.g., a previous project or documented work experience).</p>
-    </div>
-  </div>
-</section>
-
-  
   <script src="../script.js"></script>
   <script src="../form.js"></script>
   <footer class="footer" id="footer"></footer>
