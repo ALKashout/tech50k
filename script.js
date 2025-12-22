@@ -15,15 +15,14 @@ faqItems.forEach((item) => {
 });
 
 function setLang(lang) {
-  currentLang = lang;
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-  if (langEnBtn && langArBtn) {
-    langEnBtn.classList.toggle("active", lang === "en");
-    langArBtn.classList.toggle("active", lang === "ar");
-  }
+  document.documentElement.lang = lang;
   // Update all elements with data-en/data-ar
   document.querySelectorAll("[data-en]").forEach((el) => {
-    el.textContent = el.getAttribute(lang === "ar" ? "data-ar" : "data-en");
+    const translation = el.getAttribute(lang === "ar" ? "data-ar" : "data-en");
+    if (translation) {
+      el.textContent = translation;
+    }
   });
   // Update placeholders if needed
   const fullName = document.getElementById("fullName");
@@ -36,21 +35,21 @@ function setLang(lang) {
   const ageGroup = document.getElementById("ageGroup");
   if (ageGroup) {
     Array.from(ageGroup.options).forEach((opt) => {
-      if (opt.dataset && opt.dataset[lang]) opt.textContent = opt.dataset[lang];
+      const translation = opt.getAttribute(lang === "ar" ? "data-ar" : "data-en");
+      if (translation) {
+        opt.textContent = translation;
+      }
     });
   }
-  // Update radio button labels
-  document.querySelectorAll(".radio-group span[data-en]").forEach((el) => {
-    el.textContent = el.getAttribute(lang === "ar" ? "data-ar" : "data-en");
-  });
 }
 
 function initializeModal() {
   const openBtn = document.querySelector(".hero .cta");
   const modal = document.getElementById("modal");
   const closes = modal ? modal.querySelectorAll("[data-close]") : [];
-  let currentLang = "en";
+  let currentLang = document.documentElement.lang;
 
+  setLang(currentLang);
 
   function setOpen(isOpen) {
     if (!modal) return;
@@ -67,7 +66,7 @@ function initializeModal() {
 
   if (modal) {
     modal.addEventListener("click", (e) => {
-      if (e.target === modal.querySelector(".modal-overlay")) setOpen(false);
+      if (e.target === modal) setOpen(false);
     });
   }
 }
