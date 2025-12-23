@@ -1,3 +1,14 @@
+/* ===== CSS Variables ===== */
+:root {
+  --color-bg: #002623;
+  --color-bg-alt: #01352d;
+  --color-accent: #b9a779;
+  --color-accent-dark: #03483c;
+  --color-text: #b9a779;
+  --color-text-light: #f4efe2;
+  --color-link-hover: #1da1f2;
+}
+
 /* ===== Reset & Base ===== */
 * {
   margin: 0;
@@ -7,8 +18,8 @@
 }
 
 body {
-  background: linear-gradient(135deg, #002623, #002623);
-  color: #b9a779;
+  background: linear-gradient(135deg, var(--color-bg), var(--color-bg));
+  color: var(--color-text);
 }
 
 /* ===== Navbar ===== */

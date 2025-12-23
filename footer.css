@@ -1,14 +1,15 @@
 /* ===== Footer Common Styles ===== */
+
 .footer {
-  background: linear-gradient(90deg,#002623, #03483c);
+  background: linear-gradient(90deg, var(--color-bg), var(--color-accent-dark));
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding: 50px 20px 30px;
-  color: #03483c;
+  color: var(--color-accent-dark);
 }
 
 .footer-container {
-  background-color: #01352d ; 
-  color: #b9a779; 
+  background-color: var(--color-bg-alt);
+  color: var(--color-accent);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -29,7 +30,7 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 10px;
-   color: white;
+  color: #fff;
 }
 
 .footer-desc {
@@ -40,10 +41,9 @@
 .footer-links h4,
 .footer-social h4 {
   font-size: 1.1rem;
-    font-weight: 600;
-  color:#b9a779;;
+  font-weight: 600;
+  color: var(--color-accent);
   margin-bottom: 12px;
-  
 }
 
 .footer-links ul {
@@ -56,14 +56,15 @@
   margin-bottom: 8px;
 }
 
+
 .footer-links a {
-  color: #f4efe2;;
+  color: var(--color-text-light);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #1da1f2; 
+  color: var(--color-link-hover);
 }
 
 .social-icons {
@@ -76,10 +77,9 @@
 .social-icons a img {
   width: 24px;
   height: 24px;
-  filter: brightness(0) invert(1); 
+  filter: brightness(0) invert(1);
   transition: filter 0.3s;
-  color: #b9a779; 
-  
+  color: var(--color-accent);
 }
 
 .social-icons a:hover img {

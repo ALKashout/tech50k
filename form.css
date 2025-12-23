@@ -1,3 +1,9 @@
+/* Education options vertical layout */
+.education-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 /* Custom phone code dropdown styles */
 #phoneCodeDropdown {
   position: relative;
@@ -8,7 +14,7 @@
   width: 100%;
   min-height: 40px;
   background: #e0e0e0;
-  border: 1px solid #b9a779;
+  border: 1px solid var(--color-accent);
   border-radius: 6px;
   color: #383838;
   font-size: 1rem;
@@ -21,8 +27,8 @@
   transition: border-color 0.2s;
 }
 .custom-phone-dropdown-btn:focus {
-  outline: 2px solid #b9a779;
-  border-color: #b9a779;
+  outline: 2px solid var(--color-accent);
+  border-color: var(--color-accent);
 }
 .custom-phone-dropdown-list {
   position: absolute;
@@ -30,7 +36,7 @@
   left: 0;
   width: 100%;
   background: #fff;
-  border: 1px solid #b9a779;
+  border: 1px solid var(--color-accent);
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   z-index: 1000;
@@ -41,13 +47,13 @@
   font-family: inherit;
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: #b9a779 #e0e0e0;
+  scrollbar-color: var(--color-accent) #e0e0e0;
 }
 .custom-phone-dropdown-list::-webkit-scrollbar {
   width: 8px;
 }
 .custom-phone-dropdown-list::-webkit-scrollbar-thumb {
-  background: #b9a779;
+  background: var(--color-accent);
   border-radius: 4px;
 }
 .custom-phone-dropdown-list::-webkit-scrollbar-track {
@@ -132,13 +138,13 @@ input, select {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #b9a779;
+  border: 1px solid var(--color-accent);
   background: #e0e0e0;
   color: #383838;
   font-size: 1rem;
 }
 input:focus, select:focus {
-  outline: 2px solid #b9a779
+  outline: 2px solid var(--color-accent);
 }
 
 /* ===== Radio & Checkbox Groups ===== */
@@ -181,7 +187,7 @@ input:focus, select:focus {
 #submitBtn {
   width: 100%;
   background: #07231f;
-  color: #b9a779;
+  color: var(--color-accent);
   border: none;
   padding: 14px;
   border-radius: 8px;
@@ -190,7 +196,7 @@ input:focus, select:focus {
   transition: background 0.2s;
 }
 #submitBtn:hover {
-  background: #03483c;
+  background: var(--color-accent-dark);
   color: #fff;
 }
 .lang-toggle {
