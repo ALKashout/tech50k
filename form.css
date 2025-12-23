@@ -239,6 +239,15 @@ input:focus, select:focus {
     gap: 10px;
   }
 
+  #phoneCodeDropdown, #phoneNumber {
+    width: 100%;
+  }
+
+  .custom-phone-dropdown-list {
+    min-width: 280px; 
+    max-height: 180px;
+  }
+
   .lang-toggle {
     text-align: center;   /* زر اللغة بالوسط */
     margin-bottom: 12px;
