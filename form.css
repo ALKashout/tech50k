@@ -1,3 +1,10 @@
+/* RTL fix for custom phone dropdown list */
+[dir="rtl"] .custom-phone-dropdown-list {
+  left: auto;
+  right: 0;
+  direction: rtl;
+  text-align: right;
+}
 /* Education options vertical layout */
 .education-options {
   display: flex;
@@ -239,9 +246,14 @@ input:focus, select:focus {
   }
 
   /* خيارات الراديو والـ checkbox */
-  .radio-group, .inline-group {
-    flex-direction: column;   /* يخلي الخيارات تحت بعض بدل جنب بعض */
+  .radio-group {
+    flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
+  }
+  .inline-group {
+    flex-direction: row;
+    align-items: stretch;
     gap: 10px;
   }
 
