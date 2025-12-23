@@ -160,9 +160,12 @@ function initializeForm() {
 
   loadCountriesAndCodes(countrySelect, phoneCodeSelect, currentLang);
 
-  function showMessage(text, isError = false) {
+  function showMessage(text, isError = false, isSuccess = false) {
     msg.textContent = text;
-    msg.style.color = isError ? "#f87171" : "";
+    msg.style.color = isError ? "#f87171" : isSuccess ? "#22c55e" : "";
+    msg.style.fontWeight = isSuccess ? "bold" : "";
+    msg.style.fontSize = isSuccess ? "1.1em" : "";
+    msg.style.textAlign = "center";
   }
 
   form.addEventListener("submit", async (e) => {
@@ -240,12 +243,16 @@ function initializeForm() {
 
       const json = await res.json();
       if (res.ok && json.success) {
-        showMessage(currentLang === "ar" ? "تم إرسال رسالتك بنجاح." : "Thanks — your message was sent.");
+        showMessage(currentLang === "ar" ? "تم إرسال رسالتك بنجاح! سنقوم بالتواصل معك قريبًا." : "Thank you! Your message was sent successfully. We will contact you soon.", false, true);
         form.reset();
+        // Optionally hide the form and show only the confirmation
+        form.style.display = "none";
         setTimeout(() => {
+          form.style.display = "block";
+          msg.textContent = "";
           const modal = document.getElementById("modal");
           if(modal) modal.setAttribute("aria-hidden", "true");
-        }, 900);
+        }, 2000);
       } else {
         showMessage(json.message || (currentLang === "ar" ? "فشل في إرسال الرسالة." : "Failed to send message."), true);
       }
