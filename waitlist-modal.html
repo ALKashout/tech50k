@@ -20,9 +20,10 @@
       <div class="form-group">
         <label data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
         <div class="inline-group">
-          <select id="phoneCode" name="phoneCode" required style="max-width: 120px;"></select>
+          <div id="phoneCodeDropdown"></div>
+          <input type="hidden" id="phoneCode" name="phoneCode" required />
           <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{6,15}" maxlength="15"
-            placeholder="123456789" style="flex:1;" />
+            placeholder="123456789" />
         </div>
       </div>
       <div class="form-group">
