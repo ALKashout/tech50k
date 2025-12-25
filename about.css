@@ -1,168 +1,124 @@
-
-
-
-/* Navbar */
+/* ================= Navbar ================= */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 24px;
-}
-
-.logo-img {
-  height: 60px;
-  width: auto;
-}
-
-
-
-/* Language Switcher */
-.lang-switcher a {
-  color: #b9a779;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 24px;
-  position: relative;
-
-}
-
-.lang-switcher a {
-  color: var(--color-accent);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 24px;
-  position: relative;
-}
-.lang-switcher a::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-accent);
-  transition: width 0.3s ease;
-}
-.lang-switcher a:hover::after {
-  width: 100%;
-}
-  letter-spacing: 0.05em;
-  line-height: 1.5;
-  margin-bottom: 24px;
-  color: #b9a779;
-}
-
-.hero h1 {
-  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
-  letter-spacing: 0.05em;
-  line-height: 1.5;
-  margin-bottom: 24px;
-  color: var(--color-accent);
-}
-}
-
-/* Sections */
-section {
-  padding: 30px 20px;
-  max-width: 1200px;
-  padding-left: 24px;
-  padding-right: 24px;
-  margin: 0 auto;
-}
-
-section h2 {
-  font-size: 32px;
-  color: var(--color-accent);
-  padding-left: 24px;
-  padding-right: 24px;
-  margin-bottom: 10px;
-}
-
-section p,
-section ul {
-  font-size: 24px;
-  color: #ccc;
-  line-height: 1.6;
-  padding-left: 20px;
-  margin: 24px;
-  padding-right: 20px;
-}
-
-section ul li {
-  margin-bottom: 16px;
-  padding-right: 20px;
-}
-
-
-section.mission,
-section.audience {
-  background: none;
-}
-
-
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-  }
-  .social-icons a {
-    margin: 0 8px;
-  }
-  .hero h1 {
-    font-size: 32px;
-  }
-  .hero p {
-    font-size: 16px;
-    margin-bottom: 24px;
-  }
-  section {
-    padding: 40px 20px;
-  }
-}
-
-/* ===== RTL Support ===== */
-body.rtl {
-  direction: rtl;
-  text-align: right;
-}
-
-body.rtl section p,
-body.rtl section ul {
-  padding-right: 20px;
-  padding-left: 0;
-}
-
-body.rtl .navbar {
-  flex-direction: row-reverse;
-}
-
-body.rtl .social-icons a {
-  margin-left: 12px;
-  margin-right: 0;
-}
-
-body.rtl .hero {
-  text-align: right;
+  padding: 24px;
 }
 
 .logo-link {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
   text-decoration: none;
 }
 
-.logo-link:hover {
-  opacity: 0.9;
-}
-
 .logo-img {
-  height: 36px;
+  height: 60px;
   width: auto;
   display: block;
+}
+
+
+/* Language Switcher */
+.lang-switcher a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
+  position: relative;
+  letter-spacing: 0.05em;
+}
+
+.lang-switcher a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.lang-switcher a:hover::after {
+  width: 100%;
+}
+
+
+/* ================= Hero ================= */
+.hero h1 {
+  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  color: var(--color-accent);
+}
+
+.hero p {
+  font-size: 20px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* ================= Sections ================= */
+section {
+
+  max-width: 1200px;
+  
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+section h2 {
+  font-size: 32px;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+section p,
+section ul {
+  font-size: 20px;
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  padding: 0;
+}
+
+section ul li {
+  margin-bottom: 12px;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 32px 16px;
+  }
+}
+
+/* ================= RTL Support ================= */
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .navbar {
+  flex-direction: row-reverse;
+}
+
+body.rtl .lang-switcher a::after {
+  right: auto;
+  left: 0;
 }
