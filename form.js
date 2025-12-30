@@ -147,6 +147,25 @@ async function loadCountriesAndCodes(countrySel, phoneSel, lang) {
   }
 }
 
+// Update confirmation message texts based on language
+function updateConfirmationTexts(lang) {
+  const confirmationTitle = document.querySelector('.confirmation-title');
+  const confirmationText = document.querySelector('.confirmation-text');
+  const resetBtn = document.getElementById('resetFormBtn');
+  
+  if (confirmationTitle && confirmationTitle.dataset[lang]) {
+    confirmationTitle.textContent = confirmationTitle.dataset[lang];
+  }
+  
+  if (confirmationText && confirmationText.dataset[lang]) {
+    confirmationText.textContent = confirmationText.dataset[lang];
+  }
+  
+  if (resetBtn && resetBtn.dataset[lang]) {
+    resetBtn.textContent = resetBtn.dataset[lang];
+  }
+}
+
 function initializeForm() {
   const form = document.getElementById("contactForm");
   if (!form) return;
@@ -243,16 +262,60 @@ function initializeForm() {
 
       const json = await res.json();
       if (res.ok && json.success) {
-        showMessage(currentLang === "ar" ? "تم إرسال رسالتك بنجاح! سنقوم بالتواصل معك قريبًا." : "Thank you! Your message was sent successfully. We will contact you soon.", false, true);
-        form.reset();
-        // Optionally hide the form and show only the confirmation
+       
         form.style.display = "none";
+        
+        
+        const confirmationMsg = document.getElementById("confirmationMessage");
+        if (confirmationMsg) {
+          confirmationMsg.style.display = "block";
+          
+         
+          updateConfirmationTexts(currentLang);
+        }
+        
+      
+        const resetBtn = document.getElementById("resetFormBtn");
+        if (resetBtn) {
+         
+          const newResetBtn = resetBtn.cloneNode(true);
+          resetBtn.parentNode.replaceChild(newResetBtn, resetBtn);
+          
+         
+          newResetBtn.addEventListener("click", () => {
+         
+            form.reset();
+            
+          
+            form.style.display = "block";
+            
+         
+            if (confirmationMsg) {
+              confirmationMsg.style.display = "none";
+            }
+            
+          
+            loadCountriesAndCodes(countrySelect, phoneCodeSelect, currentLang);
+            
+         
+            showMessage("");
+          });
+        }
+        
+     
         setTimeout(() => {
-          form.style.display = "block";
-          msg.textContent = "";
           const modal = document.getElementById("modal");
-          if(modal) modal.setAttribute("aria-hidden", "true");
-        }, 2000);
+          if(modal) {
+            modal.setAttribute("aria-hidden", "true");
+          
+            form.style.display = "block";
+            if (confirmationMsg) {
+              confirmationMsg.style.display = "none";
+            }
+            form.reset();
+          }
+        }, 5000);
+        
       } else {
         showMessage(json.message || (currentLang === "ar" ? "فشل في إرسال الرسالة." : "Failed to send message."), true);
       }
@@ -263,4 +326,16 @@ function initializeForm() {
       submitBtn.textContent = currentLang === "ar" ? "إرسال" : "Submit";
     }
   });
+  
+ 
+  window.updateFormLanguage = function(lang) {
+    currentLang = lang;
+   
+    updateConfirmationTexts(lang);
+  };
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  initializeForm();
+});
